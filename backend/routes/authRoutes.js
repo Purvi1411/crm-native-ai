@@ -27,7 +27,7 @@ router.get('/google/callback',
     const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
     
     // Redirect back to the React frontend, passing the token and email in the URL
-    res.redirect(`${process.env.CLIENT_URL}/?token=${token}`);
+    res.redirect(`${process.env.CLIENT_URL}/dashboard?token=${token}`);
   }
 );
 
