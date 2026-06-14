@@ -10,7 +10,7 @@ import {
 
 const IconBarChart = () => <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>;
 
-const COLORS = ['#4F46E5', '#3B82F6', '#22C55E', '#A78BFA'];
+const COLORS = ['#06B6D4', '#3B82F6', '#22C55E', '#A78BFA'];
 const CHURN_COLORS = ['#EF4444', '#F59E0B', '#22C55E']; // Red, Orange, Green
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -143,7 +143,7 @@ export default function Analytics() {
             { label: 'Total Sent',     value: totalSent,      color: 'var(--text-main)', sub: 'messages dispatched' },
             { label: 'Delivered',      value: totalDelivered, color: '#22C55E', sub: `${deliveryRate}% delivery rate` },
             { label: 'Failed',         value: totalFailed,     color: '#EF4444', sub: 'need cleanup'        },
-            { label: 'Avg Open Rate',  value: `${avgOpenRate}%`, color: '#4F46E5', sub: 'across channels'    },
+            { label: 'Avg Open Rate',  value: `${avgOpenRate}%`, color: '#06B6D4', sub: 'across channels'    },
           ].map(k => (
             <div key={k.label} className="xn-metric-card">
               <div className="xn-metric-label">{k.label}</div>

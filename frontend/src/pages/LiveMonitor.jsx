@@ -8,13 +8,13 @@ const TYPE_META = {
   delivered: { color: '#22C55E', bg: 'rgba(34,197,94,.1)',   label: 'DELIVERED', dot: '#22C55E' },
   completed: { color: '#A78BFA', bg: 'rgba(167,139,250,.1)', label: 'COMPLETE',  dot: '#A78BFA' },
   failed:    { color: '#EF4444', bg: 'rgba(239,68,68,.1)',   label: 'FAILED',    dot: '#EF4444' },
-  retry:     { color: '#4F46E5', bg: 'rgba(79,70,229,.1)',  label: 'RETRY',     dot: '#4F46E5' },
+  retry:     { color: '#06B6D4', bg: 'rgba(79,70,229,.1)',  label: 'RETRY',     dot: '#06B6D4' },
   ai:        { color: '#F59E0B', bg: 'rgba(245,158,11,.1)',  label: 'AI AGENT',  dot: '#F59E0B' },
   connected: { color: 'var(--text-muted)', bg: 'rgba(156,163,175,.1)', label: 'SYSTEM',    dot: 'var(--text-muted)' },
 };
 
 const CHANNEL_COLOR = {
-  whatsapp: '#22C55E', email: '#3B82F6', sms: '#4F46E5',
+  whatsapp: '#22C55E', email: '#3B82F6', sms: '#06B6D4',
   rcs: '#8B5CF6', ai: '#F59E0B', system: '#6B7280',
 };
 
@@ -177,9 +177,9 @@ export default function LiveMonitor() {
                   <button key={f} onClick={() => setFilter(f)} style={{
                     padding: '4px 11px', borderRadius: 20, fontSize: 10.5, fontWeight: 700,
                     cursor: 'pointer', border: '1.5px solid', textTransform: 'uppercase', letterSpacing: '.4px', transition: 'all .15s',
-                    background: filter === f ? '#4F46E5' : 'transparent',
+                    background: filter === f ? '#06B6D4' : 'transparent',
                     color: filter === f ? 'var(--bg-card)' : 'var(--text-muted)',
-                    borderColor: filter === f ? '#4F46E5' : 'transparent'
+                    borderColor: filter === f ? '#06B6D4' : 'transparent'
                   }}>{f === 'all' ? 'All' : f}</button>
                 ))}
               </div>

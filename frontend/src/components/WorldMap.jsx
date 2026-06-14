@@ -11,11 +11,11 @@ const geoUrlWorld = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
 // 30 rich unique colours
 const STATE_COLORS = [
-  "#6366F1","#8B5CF6","#EC4899","#F43F5E","#14B8A6",
-  "#0EA5E9","#4F46E5","#EAB308","#10B981","#3B82F6",
+  "#22D3EE","#8B5CF6","#EC4899","#F43F5E","#14B8A6",
+  "#0EA5E9","#06B6D4","#EAB308","#10B981","#3B82F6",
   "#06B6D4","#A855F7","#84CC16","#F59E0B","#22C55E",
   "#E11D48","#7C3AED","#0891B2","#D97706","#059669",
-  "#4F46E5","#BE185D","#0D9488","#1D4ED8","#15803D",
+  "#06B6D4","#BE185D","#0D9488","#1D4ED8","#15803D",
   "#7E22CE","#B45309","#0369A1","#047857","#B91C1C",
 ];
 

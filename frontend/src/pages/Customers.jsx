@@ -74,7 +74,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
 
         {loading ? (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, gap: 12, color: 'var(--text-muted)' }}>
-            <span style={{ width: 28, height: 28, border: '3px solid var(--border-light)', borderTopColor: '#4F46E5', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }}/>
+            <span style={{ width: 28, height: 28, border: '3px solid var(--border-light)', borderTopColor: '#06B6D4', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }}/>
             <span style={{ fontSize: 12 }}>Running behavior metrics extraction…</span>
           </div>
         ) : data && (
@@ -94,7 +94,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
                 <div style={{
                   height: '100%', borderRadius: 6, transition: 'width 1s ease',
                   width: `${data.customer.churnRiskScore}%`,
-                  background: data.customer.churnRiskScore >= 70 ? '#EF4444' : data.customer.churnRiskScore >= 45 ? '#4F46E5' : '#22C55E'
+                  background: data.customer.churnRiskScore >= 70 ? '#EF4444' : data.customer.churnRiskScore >= 45 ? '#06B6D4' : '#22C55E'
                 }}/>
               </div>
               <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 8, fontStyle: 'italic' }}>"{data.insights.riskAssessment}"</p>
@@ -107,7 +107,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
                 { icon: <IconTrend />, label: 'Total Frequency', val: `${data.customer.visits} Purchases` },
               ].map(s => (
                 <div key={s.label} style={{ background: 'var(--bg-ghost)', border: '1px solid var(--border-light)', borderRadius: 10, padding: '12px', textAlign: 'center' }}>
-                  <div style={{ color: '#4F46E5', display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{s.icon}</div>
+                  <div style={{ color: '#06B6D4', display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{s.icon}</div>
                   <p style={{ fontSize: 9.5, color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.4px' }}>{s.label}</p>
                   <p style={{ fontSize: 15, fontWeight: 800, color: 'var(--text-main)', marginTop: 2 }}>{s.val}</p>
                 </div>
@@ -120,7 +120,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 7 }}>
                 {data.insights.behavioralBullets?.map((b, i) => (
                   <li key={i} style={{ background: '#EEF2FF', border: '1px solid #C7D2FE', borderRadius: 8, padding: '9px 12px', fontSize: 12, color: 'var(--text-ghost)', lineHeight: 1.5 }}>
-                    <span style={{ color: '#4F46E5', marginRight: 6 }}>•</span>{b}
+                    <span style={{ color: '#06B6D4', marginRight: 6 }}>•</span>{b}
                   </li>
                 ))}
               </ul>
@@ -239,10 +239,10 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
 
         {/* Tabs */}
         <div style={{ display: 'flex', gap: 10, marginBottom: 20, borderBottom: '1px solid var(--border-light)', paddingBottom: 10 }}>
-          <button onClick={() => setTab('manual')} style={{ background: tab === 'manual' ? '#4F46E5' : 'transparent', color: tab === 'manual' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
+          <button onClick={() => setTab('manual')} style={{ background: tab === 'manual' ? '#06B6D4' : 'transparent', color: tab === 'manual' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
             Manual Entry
           </button>
-          <button onClick={() => setTab('csv')} style={{ background: tab === 'csv' ? '#4F46E5' : 'transparent', color: tab === 'csv' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
+          <button onClick={() => setTab('csv')} style={{ background: tab === 'csv' ? '#06B6D4' : 'transparent', color: tab === 'csv' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
             CSV Upload
           </button>
         </div>
@@ -458,7 +458,7 @@ const Customers = () => {
                       <td>
                         <div style={{ display: 'flex', gap: 6 }}>
                           {c.gender && (
-                            <span style={{ fontSize: 9.5, fontWeight: 700, padding: '2px 6px', borderRadius: 4, background: c.gender === 'Female' ? '#FCE7F3' : '#E0E7FF', color: c.gender === 'Female' ? '#BE185D' : '#3730A3' }}>
+                            <span style={{ fontSize: 9.5, fontWeight: 700, padding: '2px 6px', borderRadius: 4, background: c.gender === 'Female' ? '#FCE7F3' : '#E0E7FF', color: c.gender === 'Female' ? '#BE185D' : '#155E75' }}>
                               {c.gender}
                             </span>
                           )}

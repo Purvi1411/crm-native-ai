@@ -110,7 +110,7 @@ const Campaigns = () => {
                     {camp.stats?.sent > 0 && (
                       <button
                         onClick={() => handleViewAudience(camp._id, camp.name)}
-                        style={{ background: '#EEF2FF', border: '1px solid #C7D2FE', color: '#4338CA', borderRadius: 7, padding: '4px 10px', fontSize: 11, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4 }}
+                        style={{ background: '#EEF2FF', border: '1px solid #C7D2FE', color: '#0891B2', borderRadius: 7, padding: '4px 10px', fontSize: 11, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4 }}
                       >
                         <IconUsers /> View List
                       </button>
@@ -215,7 +215,7 @@ const Campaigns = () => {
                       </div>
                       <div style={{ textAlign: 'right' }}>
                         <p style={{ fontSize: 9.5, color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.4px' }}>LTV</p>
-                        <p style={{ fontSize: 14, fontWeight: 800, color: '#4F46E5' }}>₹{u.totalSpent || 0}</p>
+                        <p style={{ fontSize: 14, fontWeight: 800, color: '#06B6D4' }}>₹{u.totalSpent || 0}</p>
                       </div>
                     </div>
                   ))}

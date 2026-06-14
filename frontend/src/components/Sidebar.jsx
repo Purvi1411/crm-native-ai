@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 const XenoLogo = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path d="M12 2L13.5 8H20L14.5 12L16.5 18L12 14.5L7.5 18L9.5 12L4 8H10.5L12 2Z"
-      fill="#4F46E5" stroke="#4F46E5" strokeWidth="0.5" strokeLinejoin="round"/>
+      fill="#06B6D4" stroke="#06B6D4" strokeWidth="0.5" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -38,7 +38,7 @@ const NAV = [
   {
     section: 'GROWTH',
     items: [
-      { to: '/agent',     label: 'AI Campaign Agent', icon: 'zap',       accent: '#4F46E5' },
+      { to: '/agent',     label: 'AI Campaign Agent', icon: 'zap',       accent: '#06B6D4' },
       { to: '/calendar',  label: 'Occasions Calendar', icon: 'calendar', accent: '#EC4899' },
       { to: '/campaigns', label: 'Campaigns',         icon: 'megaphone'  },
       { to: '/monitor',   label: 'Live Monitor',      icon: 'radio',     accent: '#22C55E', dot: true },
@@ -120,7 +120,7 @@ export default function Sidebar() {
           border-bottom: 1px solid var(--border-sidebar);
           flex-shrink: 0;
         }
-        .xn-sb-logo span { color: #4F46E5; }
+        .xn-sb-logo span { color: #06B6D4; }
         .xn-sb-scroll { flex: 1; overflow-y: auto; padding-bottom: 8px; }
         .xn-sb-scroll::-webkit-scrollbar { width: 3px; }
         .xn-sb-scroll::-webkit-scrollbar-thumb { background: var(--bg-sidebar-hover); border-radius: 4px; }
@@ -163,7 +163,7 @@ export default function Sidebar() {
         }
         .xn-sb-avatar {
           width: 30px; height: 30px; border-radius: 50%;
-          background: linear-gradient(135deg,#4F46E5,#8B5CF6);
+          background: linear-gradient(135deg,#06B6D4,#8B5CF6);
           display: flex; align-items: center; justify-content: center;
           font-size: 13px; flex-shrink: 0;
         }
@@ -196,7 +196,7 @@ export default function Sidebar() {
                     className={`xn-sb-link ${isActive ? 'active' : ''}`}
                     style={isActive && accent ? { borderColor: `${accent}44`, background: `${accent}18` } : {}}
                   >
-                    <span style={{ color: isActive ? (accent || '#4F46E5') : 'inherit', display: 'flex' }}>
+                    <span style={{ color: isActive ? (accent || '#06B6D4') : 'inherit', display: 'flex' }}>
                       {icons[icon]}
                     </span>
                     {label}
@@ -239,7 +239,7 @@ export default function Sidebar() {
                   display: 'flex', alignItems: 'center', gap: 8,
                   background: 'linear-gradient(135deg, rgba(79,70,229,.18), rgba(79,70,229,.08))',
                   border: '1.5px solid rgba(79,70,229,.35)', borderRadius: 8,
-                  color: '#4F46E5', fontSize: 12, fontWeight: 700, cursor: 'pointer',
+                  color: '#06B6D4', fontSize: 12, fontWeight: 700, cursor: 'pointer',
                   fontFamily: 'inherit', textAlign: 'left',
                 }}
               >
