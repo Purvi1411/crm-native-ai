@@ -124,7 +124,7 @@ const Campaigns = () => {
                 </p>
 
                 {/* Stats */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+                <div className="xn-grid-responsive xn-fade-up" style={{ gap: 10, animationDelay: '0.1s' }}>
                   {[
                     { icon: <IconActivity />, label: 'Total Sent', val: camp.stats?.sent || 0, color: 'var(--text-ghost)' },
                     { icon: <IconCheck />, label: 'Delivered', val: camp.stats?.delivered || 0, color: '#16A34A' },

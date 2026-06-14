@@ -138,7 +138,7 @@ export default function Analytics() {
         </div>
 
         {/* KPI row */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14, marginBottom: 22 }}>
+        <div className="xn-grid-responsive xn-fade-up" style={{ gap: 14, marginBottom: 22, animationDelay: '0.1s' }}>
           {[
             { label: 'Total Sent',     value: totalSent,      color: 'var(--text-main)', sub: 'messages dispatched' },
             { label: 'Delivered',      value: totalDelivered, color: '#22C55E', sub: `${deliveryRate}% delivery rate` },
@@ -154,13 +154,13 @@ export default function Analytics() {
         </div>
 
         {/* Geo Map Row */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+        <div className="xn-grid-responsive xn-fade-up" style={{ gap: 16, marginBottom: 16, animationDelay: '0.2s' }}>
           <GeoMap customers={customers} />
           <WorldMap customers={customers} />
         </div>
 
         {/* Row 1: Bar chart + Pie */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 16, marginBottom: 16 }}>
+        <div className="xn-grid-responsive xn-fade-up" style={{ gap: 16, marginBottom: 16, animationDelay: '0.3s' }}>
           <div className="xn-card">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
               <h3 style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-main)' }}>Campaign Volume Over Time</h3>
@@ -216,7 +216,7 @@ export default function Analytics() {
         </div>
 
         {/* Row 2: Demographic Intelligence */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 16, marginBottom: 16 }}>
+        <div className="xn-grid-responsive xn-fade-up" style={{ gap: 16, marginBottom: 16, animationDelay: '0.4s' }}>
           <div className="xn-card">
             <h3 style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-main)', marginBottom: 16 }}>Customer Age Group Distribution</h3>
             {loading ? (

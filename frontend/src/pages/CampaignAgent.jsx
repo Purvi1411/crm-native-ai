@@ -198,7 +198,7 @@ const CampaignAgent = () => {
               </div>
 
               {/* Segmentation Pipeline */}
-              <div className="xn-card" style={{ background: 'var(--bg-ghost)' }}>
+              <div className="xn-card xn-fade-up" style={{ background: 'var(--bg-ghost)', animationDelay: '0.1s' }}>
                 <h4 style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-ghost)', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 7 }}>
                   <IconFilter /> Database Segmentation Flow
                 </h4>
@@ -231,9 +231,9 @@ const CampaignAgent = () => {
               </div>
 
               {/* Timeline + DNA */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+              <div className="xn-grid-responsive xn-fade-up" style={{ animationDelay: '0.2s', gap: 14 }}>
                 {/* Timeline */}
-                <div style={{ background: '#0F0F0F', borderRadius: 14, padding: '20px', border: '1px solid rgba(249,115,22,.15)' }}>
+                <div className="xn-card" style={{ background: '#0F0F0F', borderRadius: 14, padding: '20px', border: '1px solid rgba(249,115,22,.15)' }}>
                   <h4 style={{ fontSize: 10, fontWeight: 700, color: '#F97316', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
                     <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22C55E', display: 'inline-block', animation: 'pulse 1.5s infinite' }}/>
                     AI Agent Trace Logs
@@ -250,10 +250,10 @@ const CampaignAgent = () => {
                 </div>
 
                 {/* Campaign DNA */}
-                <div style={{ background: 'linear-gradient(135deg, #1E1B4B, #0F0F0F)', borderRadius: 14, padding: '20px', border: '1px solid rgba(99,102,241,.2)', position: 'relative', overflow: 'hidden' }}>
+                <div className="xn-card" style={{ background: 'linear-gradient(135deg, #1E1B4B, #0F0F0F)', borderRadius: 14, padding: '20px', border: '1px solid rgba(99,102,241,.2)', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ position: 'absolute', right: -10, bottom: -10, fontSize: 56, opacity: .06, fontWeight: 800, color: 'var(--bg-card)', pointerEvents: 'none' }}>DNA</div>
                   <h4 style={{ fontSize: 10, fontWeight: 700, color: '#A5B4FC', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 14 }}>🧬 Campaign Architecture DNA</h4>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 8 }}>
                     {[
                       { label: 'Intent', val: plan.dna?.objective || plan.objective },
                       { label: 'Cohort Vibe', val: prefilledAudience || plan.dna?.audience || 'Segment Base' },
@@ -270,7 +270,7 @@ const CampaignAgent = () => {
               </div>
 
               {/* Channel Matrix + Simulator */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+              <div className="xn-grid-responsive xn-fade-up" style={{ animationDelay: '0.3s', gap: 14 }}>
                 {/* Channel Matrix */}
                 <div className="xn-card">
                   <h4 style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: 14 }}>📱 Omnichannel Confidence Matrix</h4>
@@ -309,7 +309,7 @@ const CampaignAgent = () => {
               </div>
 
               {/* Objective + Message */}
-              <div className="xn-card">
+              <div className="xn-card xn-fade-up" style={{ animationDelay: '0.4s' }}>
                 <p style={{ fontSize: 9.5, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: 5 }}>Extracted Strategic Objective</p>
                 <p style={{ fontWeight: 600, color: 'var(--text-main)', marginBottom: 16, fontSize: 14 }}>{plan.objective}</p>
 
@@ -325,22 +325,25 @@ const CampaignAgent = () => {
               </div>
 
               {/* Launch button */}
-              <button
-                onClick={handleLaunchCampaign}
-                disabled={isLaunching || plan.audienceCount === 0}
-                style={{
-                  width: '100%', padding: '16px', border: 'none', borderRadius: 12,
-                  background: plan.audienceCount === 0 ? '#E5E7EB' : 'linear-gradient(135deg, #F97316, #EA580C)',
-                  color: plan.audienceCount === 0 ? 'var(--text-muted)' : 'var(--bg-card)',
-                  fontSize: 15, fontWeight: 700, cursor: plan.audienceCount === 0 ? 'not-allowed' : 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9,
-                  boxShadow: plan.audienceCount === 0 ? 'none' : '0 8px 24px rgba(249,115,22,.35)',
-                  transition: 'all .2s', fontFamily: 'Inter, sans-serif'
-                }}
-              >
-                {isLaunching ? <IconLoader /> : <IconZap />}
-                {plan.audienceCount === 0 ? 'Cannot Launch: Zero Database Intersects' : 'Dispatch Autonomous Campaign'}
-              </button>
+              <div className="xn-fade-up" style={{ animationDelay: '0.5s' }}>
+                <button
+                  onClick={handleLaunchCampaign}
+                  disabled={isLaunching || plan.audienceCount === 0}
+                  className="xn-btn-primary"
+                  style={{
+                    width: '100%', padding: '16px', border: 'none', borderRadius: 12,
+                    background: plan.audienceCount === 0 ? '#E5E7EB' : 'linear-gradient(135deg, #F97316, #EA580C)',
+                    color: plan.audienceCount === 0 ? 'var(--text-muted)' : 'var(--bg-card)',
+                    fontSize: 15, fontWeight: 700, cursor: plan.audienceCount === 0 ? 'not-allowed' : 'pointer',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9,
+                    boxShadow: plan.audienceCount === 0 ? 'none' : '0 8px 24px rgba(249,115,22,.35)',
+                    transition: 'all .25s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'Inter, sans-serif'
+                  }}
+                >
+                  {isLaunching ? <IconLoader /> : <IconZap />}
+                  {plan.audienceCount === 0 ? 'Cannot Launch: Zero Database Intersects' : 'Dispatch Autonomous Campaign'}
+                </button>
+              </div>
             </div>
           )}
         </div>

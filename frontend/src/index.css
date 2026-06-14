@@ -87,6 +87,11 @@ body {
   border: 1px solid var(--border-light);
   box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.04);
   padding: 20px 24px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.xn-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.08), 0 4px 8px rgba(0,0,0,.04);
 }
 
 /* ── Metric card ── */
@@ -96,6 +101,11 @@ body {
   border: 1px solid var(--border-light);
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
   padding: 20px 22px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.xn-metric-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
 }
 .xn-metric-label {
   font-size: 11px;
@@ -133,22 +143,27 @@ body {
   align-items: center;
   gap: 7px;
   padding: 10px 18px;
-  background: #F97316;
+  background: linear-gradient(135deg, #F97316, #EA580C);
   color: #fff;
   font-size: 13px;
   font-weight: 700;
   border: none;
   border-radius: 9px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 14px rgba(249,115,22,.3);
   text-decoration: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-size: 200% auto;
 }
 .xn-btn-primary:hover {
-  background: #EA6C0A;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(249,115,22,.4);
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249,115,22,.45);
+}
+.xn-btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 2px 8px rgba(249,115,22,.3);
 }
 
 .xn-btn-ghost {
@@ -241,9 +256,25 @@ body {
 @keyframes scaleIn  { from{opacity:0;transform:scale(.94)} to{opacity:1;transform:scale(1)} }
 @keyframes spin     { to{transform:rotate(360deg)} }
 @keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:.5} }
+@keyframes shimmer  { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes slideRight { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
+@keyframes float    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 
-.xn-fade-up  { animation: fadeUp  .4s ease both; }
-.xn-scale-in { animation: scaleIn .35s ease both; }
+.xn-fade-up  { animation: fadeUp  .5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.xn-scale-in { animation: scaleIn .4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.xn-slide-right { animation: slideRight .5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* Responsive Auto-Fit Grid Helpers */
+.xn-grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.xn-grid-responsive-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
 
 /* ── Mobile Responsive Layout ── */
 @media (max-width: 768px) {

@@ -111,7 +111,7 @@ export default function Sidebar() {
           height: 100vh; position: sticky; top: 0;
           border-right: 1px solid var(--border-sidebar);
           overflow: hidden;
-          transition: background 0.2s, border-color 0.2s;
+          transition: background 0.2s, border-color 0.2s, transform 0.3s ease;
         }
         .xn-sb-logo {
           display: flex; align-items: center; gap: 9px;

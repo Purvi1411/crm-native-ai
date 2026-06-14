@@ -248,7 +248,7 @@ export default function Dashboard() {
         ) : (
           <>
             {/* Top Row: 4 Metrics */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 16 }}>
+            <div className="xn-grid-responsive xn-fade-up" style={{ marginBottom: 16, animationDelay: '0.1s' }}>
                 <MetricCard index={0} label="Total Targeted"   value={stats.campaigns.totalSent}      color='var(--text-main)' icon={null} />
                 <MetricCard index={1} label="Delivered"        value={stats.campaigns.totalDelivered} color="#16A34A" icon={<IconShieldCheck />} />
                 <MetricCard index={2} label="Failed Drops"     value={stats.campaigns.totalFailed}    color="#DC2626" icon={<IconAlert />} />
@@ -256,7 +256,7 @@ export default function Dashboard() {
             </div>
 
             {/* Middle Row: AI Recommendations & Customer Spotlight */}
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 16, marginBottom: 16 }}>
+            <div className="xn-grid-responsive xn-fade-up" style={{ marginBottom: 16, animationDelay: '0.2s' }}>
                 {/* Dynamic Recommendation Panel */}
                 <div className="xn-card" style={{ padding: '20px 24px', background: 'linear-gradient(135deg, rgba(249,115,22,.08), var(--bg-card))', border: '1px solid rgba(249,115,22,.15)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
@@ -325,7 +325,7 @@ export default function Dashboard() {
             </div>
 
             {/* Bottom Row: Area Chart & Telemetry */}
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 16, marginBottom: 16, flex: 1, minHeight: 280 }}>
+            <div className="xn-grid-responsive xn-fade-up" style={{ marginBottom: 16, flex: 1, minHeight: 280, animationDelay: '0.3s' }}>
                 
                 {/* Real-time Delivery Chart */}
                 <div className="xn-card" style={{ display: 'flex', flexDirection: 'column' }}>
