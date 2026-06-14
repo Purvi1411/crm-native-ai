@@ -21,7 +21,7 @@ export default function Recommendations() {
 
   const fetchRecs = () => {
     setLoading(true);
-    axios.get('http://localhost:5099/api/realtime/recommendations')
+    axios.get('https://crm-native-ai-1.onrender.com/api/realtime/recommendations')
       .then(r => setRecs(r.data.recommendations || []))
       .catch(() => setRecs([]))
       .finally(() => setLoading(false));
@@ -31,7 +31,7 @@ export default function Recommendations() {
     fetchRecs(); 
     
     // Listen for live events so recommendations update immediately after a campaign launches
-    const es = new EventSource('http://localhost:5099/api/realtime/events');
+    const es = new EventSource('https://crm-native-ai-1.onrender.com/api/realtime/events');
     es.onmessage = (e) => {
       try {
         const data = JSON.parse(e.data);

@@ -45,7 +45,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
   useEffect(() => {
     if (!customerId) return;
     setLoading(true);
-    axios.get(`http://localhost:5099/api/ai/explain-customer/${customerId}`)
+    axios.get(`https://crm-native-ai-1.onrender.com/api/ai/explain-customer/${customerId}`)
       .then(res => setData(res.data))
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -166,7 +166,7 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
         totalSpent: Number(form.totalSpent) || 0,
         visits: Number(form.visits) || 0,
       };
-      await axios.post('http://localhost:5099/api/customers', payload);
+      await axios.post('https://crm-native-ai-1.onrender.com/api/customers', payload);
       onSuccess();
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to add customer');
@@ -215,7 +215,7 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
 
         if (customers.length === 0) throw new Error('No valid customers found in CSV (make sure Name and Email columns exist)');
 
-        await axios.post('http://localhost:5099/api/customers/bulk', { customers });
+        await axios.post('https://crm-native-ai-1.onrender.com/api/customers/bulk', { customers });
         onSuccess();
       } catch (err) {
         setError(err.message || 'Failed to parse and upload CSV');
@@ -317,7 +317,7 @@ const Customers = () => {
   const fetchCustomers = () => {
     if (isSeeding.current) return; // Don't overwrite seed result
     setIsLoading(true);
-    axios.get(`http://localhost:5099/api/customers?_t=${Date.now()}`)
+    axios.get(`https://crm-native-ai-1.onrender.com/api/customers?_t=${Date.now()}`)
       .then(res => {
         if (!isSeeding.current) setCustomers(res.data);
       })
@@ -385,7 +385,7 @@ const Customers = () => {
                 if (window.confirm("Are you sure you want to delete all customers?")) {
                   setIsLoading(true);
                   try {
-                    await axios.delete('http://localhost:5099/api/customers/clear');
+                    await axios.delete('https://crm-native-ai-1.onrender.com/api/customers/clear');
                     setCustomers([]);
                   } catch(err) {
                     console.error('Clear failed', err);
@@ -402,7 +402,7 @@ const Customers = () => {
                 setIsLoading(true);
                 setCustomers([]);
                 try {
-                  const res = await axios.post('http://localhost:5099/api/customers/seed');
+                  const res = await axios.post('https://crm-native-ai-1.onrender.com/api/customers/seed');
                   const data = Array.isArray(res.data) ? res.data : [];
                   setCustomers(data);
                   setIsLoading(false);

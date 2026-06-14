@@ -33,8 +33,8 @@ export default function Analytics() {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:5099/api/campaigns'),
-      axios.get('http://localhost:5099/api/customers')
+      axios.get('https://crm-native-ai-1.onrender.com/api/campaigns'),
+      axios.get('https://crm-native-ai-1.onrender.com/api/customers')
     ]).then(([campRes, custRes]) => {
       setCampaigns(campRes.data);
       setCustomers(custRes.data);

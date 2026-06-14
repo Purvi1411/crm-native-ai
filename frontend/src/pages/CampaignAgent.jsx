@@ -76,7 +76,7 @@ const CampaignAgent = () => {
     setIsLoading(true);
     try {
       const settings = JSON.parse(localStorage.getItem('xeno_settings') || '{}');
-      const res = await axios.post('http://localhost:5099/api/ai/plan', { 
+      const res = await axios.post('https://crm-native-ai-1.onrender.com/api/ai/plan', { 
         prompt: finalPrompt, 
         brandVoice,
         aiModel: settings.aiModel,
@@ -98,7 +98,7 @@ const CampaignAgent = () => {
   const handleLaunchCampaign = async () => {
     setIsLaunching(true);
     try {
-      await axios.post('http://localhost:5099/api/campaigns', {
+      await axios.post('https://crm-native-ai-1.onrender.com/api/campaigns', {
         name: plan.objective || 'AI Autonomous Campaign',
         objective: plan.objective,
         message: plan.message,

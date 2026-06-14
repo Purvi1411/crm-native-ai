@@ -56,7 +56,7 @@ export default function LiveMonitor() {
 
   // ── Load historical events from DB on mount ───────────────────
   useEffect(() => {
-    axios.get('http://localhost:5099/api/realtime/monitor-feed')
+    axios.get('https://crm-native-ai-1.onrender.com/api/realtime/monitor-feed')
       .then(r => {
         const historical = r.data.events || [];
         feedRef.current = historical;
@@ -64,7 +64,7 @@ export default function LiveMonitor() {
       })
       .catch(() => {});
 
-    axios.get('http://localhost:5099/api/campaigns')
+    axios.get('https://crm-native-ai-1.onrender.com/api/campaigns')
       .then(r => setCampaigns(r.data))
       .catch(() => {});
   }, []);
@@ -72,7 +72,7 @@ export default function LiveMonitor() {
   // ── Poll campaigns every 5s to update progress bars ──────────
   useEffect(() => {
     const interval = setInterval(() => {
-      axios.get('http://localhost:5099/api/campaigns')
+      axios.get('https://crm-native-ai-1.onrender.com/api/campaigns')
         .then(r => setCampaigns(r.data))
         .catch(() => {});
     }, 5000);
@@ -82,7 +82,7 @@ export default function LiveMonitor() {
   // ── Connect to real SSE stream ────────────────────────────────
   useEffect(() => {
     const token = localStorage.getItem('token') || '';
-    const es = new EventSource(`http://localhost:5099/api/realtime/events?token=${token}`);
+    const es = new EventSource(`https://crm-native-ai-1.onrender.com/api/realtime/events?token=${token}`);
     esRef.current = es;
 
     es.onopen = () => {
@@ -98,7 +98,7 @@ export default function LiveMonitor() {
 
         // If a campaign event, refresh campaign list too
         if (['queued', 'completed'].includes(data.type)) {
-          axios.get('http://localhost:5099/api/campaigns')
+          axios.get('https://crm-native-ai-1.onrender.com/api/campaigns')
             .then(r => setCampaigns(r.data))
             .catch(() => {});
         }

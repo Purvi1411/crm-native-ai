@@ -64,7 +64,7 @@ export default function Login() {
   const handleSubmit = async e => {
     e.preventDefault(); setLoading(true); setError('');
     try {
-      const { data } = await axios.post('http://localhost:5099/api/auth/login', form);
+      const { data } = await axios.post('https://crm-native-ai-1.onrender.com/api/auth/login', form);
       localStorage.setItem('token', data.token);
       localStorage.setItem('userEmail', data.email || form.email);
       localStorage.setItem('userId', data._id || '');
@@ -528,7 +528,7 @@ export default function Login() {
 
             <div className="xp-divider"><span>OR</span></div>
 
-            <button className="xp-google" onClick={() => window.location.href='http://localhost:5099/api/auth/google'}>
+            <button className="xp-google" onClick={() => window.location.href='https://crm-native-ai-1.onrender.com/api/auth/google'}>
               <GoogleIcon/> Continue with Google
             </button>
 

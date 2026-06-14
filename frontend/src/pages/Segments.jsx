@@ -31,7 +31,7 @@ const Segments = () => {
 
   const fetchSegments = async () => {
     try {
-      const res = await axios.get('http://localhost:5099/api/segments');
+      const res = await axios.get('https://crm-native-ai-1.onrender.com/api/segments');
       setSegments(res.data);
     } catch (e) { console.error(e); }
     finally { setLoading(false); }
@@ -41,7 +41,7 @@ const Segments = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.post('http://localhost:5099/api/segments', newSegmentData);
+      await axios.post('https://crm-native-ai-1.onrender.com/api/segments', newSegmentData);
       setIsModalOpen(false);
       setNewSegmentData({ name: '', criteria: '' });
       fetchSegments();
@@ -52,7 +52,7 @@ const Segments = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this segment?')) return;
     try {
-      await axios.delete(`http://localhost:5099/api/segments/${id}`);
+      await axios.delete(`https://crm-native-ai-1.onrender.com/api/segments/${id}`);
       setSegments(prev => prev.filter(s => s._id !== id));
     } catch (e) {
       console.error("Failed to delete segment", e);
@@ -66,7 +66,7 @@ const Segments = () => {
     setSelectedSegmentName(name);
     setAudienceData([]);
     try {
-      const res = await axios.get(`http://localhost:5099/api/segments/${id}/customers`);
+      const res = await axios.get(`https://crm-native-ai-1.onrender.com/api/segments/${id}/customers`);
       setAudienceData(res.data);
     } catch (e) { console.error(e); }
     finally { setLoadingAudience(false); }

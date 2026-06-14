@@ -28,7 +28,7 @@ export default function ChurnIntelligence() {
   const [selectedRisk, setSelectedRisk] = useState('all');
 
   useEffect(() => {
-    axios.get('http://localhost:5099/api/customers')
+    axios.get('https://crm-native-ai-1.onrender.com/api/customers')
       .then(r => setCustomers(r.data))
       .catch(() => {})
       .finally(() => setLoading(false));

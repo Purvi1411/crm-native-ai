@@ -27,7 +27,7 @@ const Campaigns = () => {
   const [selectedCampaignName, setSelectedCampaignName] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5099/api/campaigns')
+    axios.get('https://crm-native-ai-1.onrender.com/api/campaigns')
       .then(res => setCampaigns(res.data))
       .catch(err => console.error(err))
       .finally(() => setLoading(false));
@@ -39,7 +39,7 @@ const Campaigns = () => {
     setSelectedCampaignName(name);
     setAudienceData([]);
     try {
-      const res = await axios.get(`http://localhost:5099/api/campaigns/${id}/customers`);
+      const res = await axios.get(`https://crm-native-ai-1.onrender.com/api/campaigns/${id}/customers`);
       setAudienceData(res.data);
     } catch (e) { console.error(e); }
     finally { setLoadingAudience(false); }

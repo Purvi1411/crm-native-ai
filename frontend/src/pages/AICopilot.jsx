@@ -51,7 +51,7 @@ const AICopilot = () => {
                 setInputText('');
                 try {
                     // 🔥 UPDATED: Now passing the 'history' to the backend
-                    const res = await axios.post('http://localhost:5099/api/ai/chat', { 
+                    const res = await axios.post('https://crm-native-ai-1.onrender.com/api/ai/chat', { 
                         message: userText,
                         history: updatedMessages 
                     });

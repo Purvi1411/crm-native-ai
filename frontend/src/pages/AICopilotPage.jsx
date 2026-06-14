@@ -97,7 +97,7 @@ export default function AICopilotPage() {
 
     try {
       const settings = JSON.parse(localStorage.getItem('xeno_settings') || '{}');
-      const res = await axios.post('http://localhost:5099/api/ai/chat', {
+      const res = await axios.post('https://crm-native-ai-1.onrender.com/api/ai/chat', {
         message: userText,
         history: newMessages,
         aiModel: settings.aiModel || 'llama-3.1-8b-instant',

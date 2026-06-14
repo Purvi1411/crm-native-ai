@@ -36,7 +36,7 @@ export default function ResetPassword() {
     setMessage(null);
 
     try {
-      const res = await fetch(`http://localhost:5099/api/auth/reset-password/${token}`, {
+      const res = await fetch(`https://crm-native-ai-1.onrender.com/api/auth/reset-password/${token}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password })

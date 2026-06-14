@@ -74,7 +74,7 @@ export default function Dashboard() {
 
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('http://localhost:5099/api/auth/me', {
+      axios.get('https://crm-native-ai-1.onrender.com/api/auth/me', {
         headers: { Authorization: `Bearer ${token}` }
       }).then(res => {
          if (res.data && res.data.email) {
@@ -96,7 +96,7 @@ export default function Dashboard() {
   }, []);
 
   const loadDashboardData = () => {
-    axios.get('http://localhost:5099/api/realtime/stats')
+    axios.get('https://crm-native-ai-1.onrender.com/api/realtime/stats')
       .then(res => {
         setStats(res.data);
         
@@ -111,7 +111,7 @@ export default function Dashboard() {
       })
       .catch(() => setLoading(false));
       
-    axios.get('http://localhost:5099/api/realtime/recommendations')
+    axios.get('https://crm-native-ai-1.onrender.com/api/realtime/recommendations')
       .then(res => setRecommendations(res.data.recommendations))
       .catch(() => {});
   };
@@ -119,7 +119,7 @@ export default function Dashboard() {
   useEffect(() => {
     loadDashboardData();
 
-    axios.get('http://localhost:5099/api/realtime/monitor-feed')
+    axios.get('https://crm-native-ai-1.onrender.com/api/realtime/monitor-feed')
       .then(res => {
         const events = res.data.events || [];
         feedRef.current = events;
@@ -150,7 +150,7 @@ export default function Dashboard() {
 
   // Real-time updates via SSE
   useEffect(() => {
-    const es = new EventSource('http://localhost:5099/api/realtime/events');
+    const es = new EventSource('https://crm-native-ai-1.onrender.com/api/realtime/events');
     esRef.current = es;
 
     es.onopen = () => setConnected(true);
@@ -182,7 +182,7 @@ export default function Dashboard() {
 
         // Refresh stats if campaigns completed or queued
         if (['queued', 'completed', 'delivered', 'failed'].includes(data.type)) {
-          axios.get('http://localhost:5099/api/realtime/stats')
+          axios.get('https://crm-native-ai-1.onrender.com/api/realtime/stats')
             .then(res => setStats(res.data))
             .catch(() => {});
         }
