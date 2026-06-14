@@ -49,7 +49,9 @@ router.post('/plan', async (req, res) => {
             "simulationRatios": {
                 "openRate": (number decimal between 0.40 and 0.85, representing predicted percentage),
                 "clickRate": (number decimal between 0.10 and 0.35, representing predicted percentage),
-                "conversionRate": (number decimal between 0.02 and 0.09, representing predicted percentage)
+                "conversionRate": (number decimal between 0.02 and 0.09, representing predicted percentage),
+                "aov": (number between 500 and 5000, representing predicted average order value in rupees),
+                "profitMargin": (number decimal between 0.10 and 0.40, representing profit margin)
             }
         }`;
 

@@ -298,6 +298,7 @@ const CampaignAgent = () => {
                       { label: 'Expected Opens', val: Math.round(plan.audienceCount * (plan.simulationRatios?.openRate || 0.7)), color: '#6366F1' },
                       { label: 'Expected Clicks', val: Math.round(plan.audienceCount * (plan.simulationRatios?.openRate || 0.7) * (plan.simulationRatios?.clickRate || 0.2)), color: '#8B5CF6' },
                       { label: 'Conversions', val: Math.round(plan.audienceCount * (plan.simulationRatios?.conversionRate || 0.05)), color: '#10B981' },
+                      { label: 'Expected Profit', val: `₹${Math.round((plan.audienceCount * (plan.simulationRatios?.conversionRate || 0.05)) * (plan.simulationRatios?.aov || 1500) * (plan.simulationRatios?.profitMargin || 0.2)).toLocaleString()}`, color: '#F59E0B' },
                     ].map(s => (
                       <div key={s.label} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-light)', borderRadius: 9, padding: '10px 12px' }}>
                         <p style={{ fontSize: 9.5, color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.4px' }}>{s.label}</p>

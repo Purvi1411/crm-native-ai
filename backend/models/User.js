@@ -17,6 +17,16 @@ const userSchema = new mongoose.Schema({
   },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
+  settings: {
+    type: Object,
+    default: {
+      name: 'Admin', email: 'admin@xenoreach.ai', role: 'CRM Manager', company: 'TechMahindra',
+      emailNotifs: true, smsNotifs: false, campaignAlerts: true, churnAlerts: true, weeklyReport: true,
+      autoSuggest: true, brandSafety: true, aiModel: 'llama-3.1-8b-instant', temperature: '0.5',
+      whatsappEnabled: true, emailEnabled: true, smsEnabled: true, rcsEnabled: false,
+      retryAttempts: '3', retryDelay: '5', failureThreshold: '20'
+    }
+  }
 }, { timestamps: true });
 
 // Hash the password before saving to the database

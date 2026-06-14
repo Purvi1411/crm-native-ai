@@ -16,6 +16,10 @@ router.post('/forgot-password', forgotPassword);
 // Route: POST /api/auth/reset-password/:token
 router.post('/reset-password/:token', resetPassword);
 
+const { updateSettings } = require('../controllers/authController');
+// Route: PUT /api/auth/settings
+router.put('/settings', updateSettings);
+
 // 1. The Google Trigger Route
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
