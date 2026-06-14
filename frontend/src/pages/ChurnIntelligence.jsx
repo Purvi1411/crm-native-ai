@@ -71,7 +71,7 @@ export default function ChurnIntelligence() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 22 }}>
           {[
             { label: 'High Risk',   count: high.length,   color: '#EF4444', bg: 'rgba(239,68,68,.07)',   desc: 'Churn score > 75 — Immediate action required', key: 'high'   },
-            { label: 'Medium Risk', count: medium.length, color: '#F97316', bg: 'rgba(79,70,229,.07)',  desc: 'Churn score 40–75 — Monitor closely',           key: 'medium' },
+            { label: 'Medium Risk', count: medium.length, color: '#F97316', bg: 'rgba(249,115,22,.07)',  desc: 'Churn score 40–75 — Monitor closely',           key: 'medium' },
             { label: 'Low Risk',    count: low.length,    color: '#22C55E', bg: 'rgba(34,197,94,.07)',   desc: 'Churn score < 40 — Healthy & engaged',          key: 'low'    },
           ].map(r => (
             <button key={r.key} onClick={() => setSelectedRisk(selectedRisk === r.key ? 'all' : r.key)}

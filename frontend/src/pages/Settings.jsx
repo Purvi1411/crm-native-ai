@@ -169,7 +169,7 @@ export default function Settings() {
 
 
             {/* About */}
-            <div className="xn-card" style={{ background: '#0F0F0F', border: '1px solid rgba(79,70,229,.15)' }}>
+            <div className="xn-card" style={{ background: '#0F0F0F', border: '1px solid rgba(249,115,22,.15)' }}>
               <div style={{ textAlign: 'center', padding: '8px 0' }}>
                 <div style={{ fontSize: 24, marginBottom: 8 }}>⭐</div>
                 <p style={{ fontSize: 15, fontWeight: 800, color: 'var(--bg-card)' }}>XenoReach AI</p>

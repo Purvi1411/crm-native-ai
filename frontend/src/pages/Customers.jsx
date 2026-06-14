@@ -128,7 +128,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
 
             {/* Next action */}
             <div style={{ background: 'linear-gradient(135deg, #0F0F0F, #1A1230)', borderRadius: 12, padding: '16px' }}>
-              <span style={{ fontSize: 9, fontWeight: 700, background: 'rgba(79,70,229,.25)', color: '#FB923C', padding: '2px 8px', borderRadius: 12, letterSpacing: '.6px', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: 9, fontWeight: 700, background: 'rgba(249,115,22,.25)', color: '#FB923C', padding: '2px 8px', borderRadius: 12, letterSpacing: '.6px', textTransform: 'uppercase' }}>
                 Strategic Intervention
               </span>
               <p style={{ fontSize: 12, color: '#D1D5DB', marginTop: 8, lineHeight: 1.6 }}>

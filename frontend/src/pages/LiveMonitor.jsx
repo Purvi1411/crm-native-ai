@@ -8,7 +8,7 @@ const TYPE_META = {
   delivered: { color: '#22C55E', bg: 'rgba(34,197,94,.1)',   label: 'DELIVERED', dot: '#22C55E' },
   completed: { color: '#A78BFA', bg: 'rgba(167,139,250,.1)', label: 'COMPLETE',  dot: '#A78BFA' },
   failed:    { color: '#EF4444', bg: 'rgba(239,68,68,.1)',   label: 'FAILED',    dot: '#EF4444' },
-  retry:     { color: '#F97316', bg: 'rgba(79,70,229,.1)',  label: 'RETRY',     dot: '#F97316' },
+  retry:     { color: '#F97316', bg: 'rgba(249,115,22,.1)',  label: 'RETRY',     dot: '#F97316' },
   ai:        { color: '#F59E0B', bg: 'rgba(245,158,11,.1)',  label: 'AI AGENT',  dot: '#F59E0B' },
   connected: { color: 'var(--text-muted)', bg: 'rgba(156,163,175,.1)', label: 'SYSTEM',    dot: 'var(--text-muted)' },
 };

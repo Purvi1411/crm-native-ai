@@ -94,7 +94,7 @@ export default function ResetPassword() {
           border-color: #F97316;
           outline: none;
           background: #fff;
-          box-shadow: 0 0 0 4px rgba(79,70,229,0.1);
+          box-shadow: 0 0 0 4px rgba(249,115,22,0.1);
         }
         .xp-btn {
           width: 100%;
@@ -109,7 +109,7 @@ export default function ResetPassword() {
           margin-top: 10px;
           transition: all 0.2s;
         }
-        .xp-btn:hover { background: #EA580C; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.3); }
+        .xp-btn:hover { background: #EA580C; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(249,115,22,0.3); }
         .xp-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
         
         .dark .xp-root { background: #0a0a0f; }
@@ -136,7 +136,7 @@ export default function ResetPassword() {
 
         <div className="xp-card">
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom: 20, background: '#fff', borderRadius: 16, padding: 6, boxShadow: '0 8px 24px rgba(79,70,229,0.4)', border: '2px solid rgba(79,70,229,0.3)' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom: 20, background: '#fff', borderRadius: 16, padding: 6, boxShadow: '0 8px 24px rgba(249,115,22,0.4)', border: '2px solid rgba(249,115,22,0.3)' }}>
               <img src="/pwa-192x192.svg" alt="Logo" style={{ width: 48, height: 48 }} />
             </div>
             <h2 style={{ fontSize:28, fontWeight:800, color: isDark ? '#fff' : '#111827', margin: 0 }}>Reset Password</h2>

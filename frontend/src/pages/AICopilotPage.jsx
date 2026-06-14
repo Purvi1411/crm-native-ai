@@ -210,7 +210,7 @@ export default function AICopilotPage() {
                                 display: 'flex', alignItems: 'center', gap: 7, padding: '8px 12px',
                                 background: '#F97316', color: 'var(--bg-card)', border: 'none', borderRadius: 8,
                                 fontSize: 12, fontWeight: 700, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
-                                boxShadow: '0 4px 12px rgba(79,70,229,.25)', transition: 'all .2s'
+                                boxShadow: '0 4px 12px rgba(249,115,22,.25)', transition: 'all .2s'
                               }}
                             >
                               <IconRocket />

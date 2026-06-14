@@ -227,7 +227,7 @@ export default function Analytics() {
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke='var(--border-light)' />
                   <XAxis dataKey="name" tick={{ fontSize: 11, fill: 'var(--text-muted)' }} stroke="transparent" />
                   <YAxis tick={{ fontSize: 11, fill: 'var(--text-muted)' }} stroke="transparent" />
-                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(79,70,229,0.05)' }} />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(249,115,22,0.05)' }} />
                   <Bar dataKey="Count" fill="#A78BFA" radius={[4,4,0,0]} />
                 </BarChart>
               </ResponsiveContainer>

@@ -26,7 +26,7 @@ const RiskScatterPlot = ({ customers }) => {
     if (active && payload && payload.length) {
       const d = payload[0].payload;
       return (
-        <div style={{ background: 'var(--text-main)', color: 'var(--bg-card)', padding: '10px 14px', borderRadius: 10, fontSize: 12, boxShadow: '0 8px 24px rgba(0,0,0,.2)', border: '1px solid rgba(79,70,229,.2)' }}>
+        <div style={{ background: 'var(--text-main)', color: 'var(--bg-card)', padding: '10px 14px', borderRadius: 10, fontSize: 12, boxShadow: '0 8px 24px rgba(0,0,0,.2)', border: '1px solid rgba(249,115,22,.2)' }}>
           <p style={{ fontWeight: 700, color: '#F97316', marginBottom: 5 }}>{d.name}</p>
           <p>Total Spent: <span style={{ color: '#22C55E', fontWeight: 600 }}>₹{d.totalSpent}</span></p>
           <p>Last Order: <span style={{ color: '#D1D5DB' }}>{d.dateStr}</span></p>

@@ -35,7 +35,7 @@
   --text-sidebar-muted: rgba(255,255,255,0.45);
   --text-sidebar-ghost: rgba(255,255,255,0.2);
   --bg-sidebar-hover: rgba(255,255,255,0.06);
-  --border-sidebar: rgba(79,70,229,0.12);
+  --border-sidebar: rgba(249,115,22,0.12);
 }
 
 body {
@@ -151,7 +151,7 @@ body {
   border-radius: 9px;
   cursor: pointer;
   transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 14px rgba(79,70,229,.3);
+  box-shadow: 0 4px 14px rgba(249,115,22,.3);
   text-decoration: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-size: 200% auto;
@@ -159,11 +159,11 @@ body {
 .xn-btn-primary:hover {
   background-position: right center;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(79,70,229,.45);
+  box-shadow: 0 6px 20px rgba(249,115,22,.45);
 }
 .xn-btn-primary:active {
   transform: translateY(0) scale(0.97);
-  box-shadow: 0 2px 8px rgba(79,70,229,.3);
+  box-shadow: 0 2px 8px rgba(249,115,22,.3);
 }
 
 .xn-btn-ghost {
@@ -226,7 +226,7 @@ body {
 }
 .xn-dot-green  { background: #22C55E; box-shadow: 0 0 0 3px rgba(34,197,94,.15); }
 .xn-dot-red    { background: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,.15);  }
-.xn-dot-orange { background: #F97316; box-shadow: 0 0 0 3px rgba(79,70,229,.15); }
+.xn-dot-orange { background: #F97316; box-shadow: 0 0 0 3px rgba(249,115,22,.15); }
 
 /* ── Input ── */
 .xn-input {
@@ -242,7 +242,7 @@ body {
 }
 .xn-input:focus {
   border-color: #F97316;
-  box-shadow: 0 0 0 3px rgba(79,70,229,.12);
+  box-shadow: 0 0 0 3px rgba(249,115,22,.12);
 }
 
 /* Scrollbar */

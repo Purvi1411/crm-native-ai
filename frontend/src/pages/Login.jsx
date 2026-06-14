@@ -133,12 +133,12 @@ export default function Login() {
           --xp-input-bg: #1a1a24;
           --xp-input-border: #2a2a38;
           --xp-input-focus-bg: #1c1810;
-          --xp-badge-bg: rgba(79,70,229,0.12);
-          --xp-badge-border: rgba(79,70,229,0.25);
+          --xp-badge-bg: rgba(249,115,22,0.12);
+          --xp-badge-border: rgba(249,115,22,0.25);
           --xp-feat-bg: #18181f;
           --xp-stat-bg: #18181f;
-          --xp-ai-card-bg: rgba(79,70,229,0.08);
-          --xp-ai-card-border: rgba(79,70,229,0.2);
+          --xp-ai-card-bg: rgba(249,115,22,0.08);
+          --xp-ai-card-border: rgba(249,115,22,0.2);
           --xp-dropdown-bg: #22222e;
           --xp-right-shadow: -4px 0 40px rgba(0,0,0,0.3);
           background: var(--xp-bg);
@@ -182,7 +182,7 @@ export default function Login() {
         }
         .xp-iw:focus-within {
           border-color:#F97316; background:var(--xp-input-focus-bg);
-          box-shadow:0 0 0 4px rgba(79,70,229,.12);
+          box-shadow:0 0 0 4px rgba(249,115,22,.12);
         }
         .xp-ii { padding:0 14px; color:var(--xp-text-faint); display:flex; align-items:center; flex-shrink:0; }
         .xp-inp {
@@ -207,12 +207,12 @@ export default function Login() {
         .xp-btn {
           width:100%; padding:16px; background:#F97316; color:#fff;
           font-size:17px; font-weight:700; border:none; border-radius:12px; cursor:pointer;
-          box-shadow:0 4px 16px rgba(79,70,229,.35); transition:all .25s ease; font-family:inherit;
+          box-shadow:0 4px 16px rgba(249,115,22,.35); transition:all .25s ease; font-family:inherit;
           letter-spacing:0.3px;
         }
         .xp-btn:hover {
           background:#EA580C; transform:translateY(-2px);
-          box-shadow:0 8px 28px rgba(79,70,229,.4);
+          box-shadow:0 8px 28px rgba(249,115,22,.4);
         }
         .xp-btn:active { transform:translateY(0); }
         .xp-btn:disabled { opacity:.7; cursor:not-allowed; transform:none; }
@@ -460,7 +460,7 @@ export default function Login() {
                   else alert('PWA Install is not available right now. This usually means the app is already installed or your browser is blocking it.');
                 }} 
                 title="Install App" 
-                style={{ height:38, padding: '0 16px', borderRadius:20, border:'2px solid #F97316', background:'var(--xp-card-bg)', display:'flex', alignItems:'center', gap: 6, cursor:'pointer', color:'#F97316', fontWeight: 700, fontSize: 13, transition:'all .2s', boxShadow: '0 2px 10px rgba(79,70,229,0.2)' }}
+                style={{ height:38, padding: '0 16px', borderRadius:20, border:'2px solid #F97316', background:'var(--xp-card-bg)', display:'flex', alignItems:'center', gap: 6, cursor:'pointer', color:'#F97316', fontWeight: 700, fontSize: 13, transition:'all .2s', boxShadow: '0 2px 10px rgba(249,115,22,0.2)' }}
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 Install App
@@ -477,7 +477,7 @@ export default function Login() {
 
             <div style={{ textAlign: 'center', marginBottom: 36 }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
-                <div style={{ background: '#fff', borderRadius: 16, padding: 6, display: 'inline-flex', boxShadow: '0 8px 24px rgba(79,70,229,0.4)', border: '2px solid rgba(79,70,229,0.3)' }}>
+                <div style={{ background: '#fff', borderRadius: 16, padding: 6, display: 'inline-flex', boxShadow: '0 8px 24px rgba(249,115,22,0.4)', border: '2px solid rgba(249,115,22,0.3)' }}>
                   <img src="/pwa-192x192.svg" alt="Xeno Logo" style={{ width: 64, height: 64 }} />
                 </div>
               </div>

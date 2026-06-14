@@ -38,7 +38,7 @@ const MetricCard = ({ label, value, color, icon, tag, index, onRefresh }) => (
 const ChartTooltip = ({ active, payload }) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: 'var(--text-main)', padding: '10px 14px', borderRadius: 10, border: '1px solid rgba(79,70,229,.3)', fontSize: 12, boxShadow: '0 8px 24px rgba(0,0,0,.2)' }}>
+    <div style={{ background: 'var(--text-main)', padding: '10px 14px', borderRadius: 10, border: '1px solid rgba(249,115,22,.3)', fontSize: 12, boxShadow: '0 8px 24px rgba(0,0,0,.2)' }}>
       <p style={{ color: 'var(--bg-card)', fontWeight: 700, marginBottom: 2 }}>{payload[0].payload.time}</p>
       <p style={{ color: '#22C55E' }}>Delivered: {payload[0].value}</p>
     </div>
@@ -299,7 +299,7 @@ export default function Dashboard() {
             {/* Middle Row: AI Recommendations & Customer Spotlight */}
             <div className="xn-grid-responsive xn-fade-up" style={{ marginBottom: 16, animationDelay: '0.2s' }}>
                 {/* Dynamic Recommendation Panel */}
-                <div className="xn-card" style={{ padding: '20px 24px', background: 'linear-gradient(135deg, rgba(79,70,229,.08), var(--bg-card))', border: '1px solid rgba(79,70,229,.15)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div className="xn-card" style={{ padding: '20px 24px', background: 'linear-gradient(135deg, rgba(249,115,22,.08), var(--bg-card))', border: '1px solid rgba(249,115,22,.15)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
                         <h3 style={{ fontSize: 12, fontWeight: 800, color: '#EA580C', textTransform: 'uppercase', letterSpacing: '.6px', display: 'flex', alignItems: 'center', gap: 6 }}>
                             <IconSparkles /> Live AI Recommendation
@@ -322,7 +322,7 @@ export default function Dashboard() {
                             </p>
                             <button 
                                 onClick={() => navigate('/agent', { state: { prefillAudience: activeRec.title } })}
-                                style={{ width: '100%', padding: '10px', background: '#F97316', color: 'var(--bg-card)', border: 'none', borderRadius: 10, fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, cursor: 'pointer', boxShadow: '0 4px 12px rgba(79,70,229,.25)', transition: 'transform .1s' }}
+                                style={{ width: '100%', padding: '10px', background: '#F97316', color: 'var(--bg-card)', border: 'none', borderRadius: 10, fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, cursor: 'pointer', boxShadow: '0 4px 12px rgba(249,115,22,.25)', transition: 'transform .1s' }}
                                 onMouseDown={e => e.currentTarget.style.transform = 'scale(0.98)'}
                                 onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
                             >
@@ -399,7 +399,7 @@ export default function Dashboard() {
                     <div style={{
                         background: 'linear-gradient(135deg, #0F0F0F, #1A1A2E)',
                         borderRadius: 16, padding: '22px 24px',
-                        border: '1px solid rgba(79,70,229,.3)',
+                        border: '1px solid rgba(249,115,22,.3)',
                         position: 'relative', overflow: 'hidden',
                         boxShadow: '0 10px 30px rgba(0,0,0,.15)'
                     }}>

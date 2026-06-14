@@ -233,7 +233,7 @@ const CampaignAgent = () => {
               {/* Timeline + DNA */}
               <div className="xn-grid-responsive xn-fade-up" style={{ animationDelay: '0.2s', gap: 14 }}>
                 {/* Timeline */}
-                <div className="xn-card" style={{ background: '#0F0F0F', borderRadius: 14, padding: '20px', border: '1px solid rgba(79,70,229,.15)' }}>
+                <div className="xn-card" style={{ background: '#0F0F0F', borderRadius: 14, padding: '20px', border: '1px solid rgba(249,115,22,.15)' }}>
                   <h4 style={{ fontSize: 10, fontWeight: 700, color: '#F97316', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
                     <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22C55E', display: 'inline-block', animation: 'pulse 1.5s infinite' }}/>
                     AI Agent Trace Logs
@@ -337,7 +337,7 @@ const CampaignAgent = () => {
                     color: plan.audienceCount === 0 ? 'var(--text-muted)' : 'var(--bg-card)',
                     fontSize: 15, fontWeight: 700, cursor: plan.audienceCount === 0 ? 'not-allowed' : 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9,
-                    boxShadow: plan.audienceCount === 0 ? 'none' : '0 8px 24px rgba(79,70,229,.35)',
+                    boxShadow: plan.audienceCount === 0 ? 'none' : '0 8px 24px rgba(249,115,22,.35)',
                     transition: 'all .25s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'Inter, sans-serif'
                   }}
                 >

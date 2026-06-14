@@ -132,7 +132,7 @@ export default function Recommendations() {
                       border: 'none', cursor: isLaunched ? 'default' : 'pointer',
                       background: isLaunched ? '#22C55E' : '#F97316',
                       color: 'var(--bg-card)', transition: 'all .2s', fontFamily: 'Inter, sans-serif',
-                      boxShadow: isLaunched ? 'none' : '0 4px 12px rgba(79,70,229,.3)'
+                      boxShadow: isLaunched ? 'none' : '0 4px 12px rgba(249,115,22,.3)'
                     }}
                   >
                     {isLaunched ? '✓ Launching Campaign…' : (<><IconRocket /> Launch Campaign</>)}

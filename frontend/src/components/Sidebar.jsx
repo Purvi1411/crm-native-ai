@@ -143,8 +143,8 @@ export default function Sidebar() {
         .xn-sb-link:hover { color: var(--text-sidebar-main); background: var(--bg-sidebar-hover); }
         .xn-sb-link.active {
           color: var(--text-sidebar-main); font-weight: 600;
-          background: linear-gradient(135deg, rgba(79,70,229,.15), rgba(79,70,229,.05));
-          border: 1px solid rgba(79,70,229,.28);
+          background: linear-gradient(135deg, rgba(249,115,22,.15), rgba(249,115,22,.05));
+          border: 1px solid rgba(249,115,22,.28);
         }
         .xn-sb-dot {
           width: 6px; height: 6px; border-radius: 50%; background: #22C55E;
@@ -237,8 +237,8 @@ export default function Sidebar() {
                 style={{
                   width: '100%', margin: '4px 0 0', padding: '9px 11px',
                   display: 'flex', alignItems: 'center', gap: 8,
-                  background: 'linear-gradient(135deg, rgba(79,70,229,.18), rgba(79,70,229,.08))',
-                  border: '1.5px solid rgba(79,70,229,.35)', borderRadius: 8,
+                  background: 'linear-gradient(135deg, rgba(249,115,22,.18), rgba(249,115,22,.08))',
+                  border: '1.5px solid rgba(249,115,22,.35)', borderRadius: 8,
                   color: '#F97316', fontSize: 12, fontWeight: 700, cursor: 'pointer',
                   fontFamily: 'inherit', textAlign: 'left',
                 }}
