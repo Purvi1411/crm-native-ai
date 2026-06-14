@@ -236,9 +236,9 @@ export default function Dashboard() {
             <h1 className="xn-page-title" style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
               <IconActivity /> Dynamic Command Center
             </h1>
-            <div style={{ marginTop: 14, marginBottom: 4, padding: '16px 20px', background: 'linear-gradient(135deg, rgba(6,182,212,0.1), transparent)', borderLeft: '4px solid #06B6D4', borderRadius: '8px 12px 12px 8px' }}>
+            <div style={{ marginTop: 14, marginBottom: 4, padding: '16px 20px', background: 'linear-gradient(135deg, rgba(6,182,212,0.1), transparent)', borderLeft: '4px solid #F97316', borderRadius: '8px 12px 12px 8px' }}>
               <p style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-main)', margin: 0 }}>
-                Hello, <span style={{ color: '#06B6D4' }}>{userEmail || 'Welcome back'}</span>! 👋
+                Hello, <span style={{ color: '#F97316' }}>{userEmail || 'Welcome back'}</span>! 👋
               </p>
               <p style={{ fontSize: 14, color: 'var(--text-muted)', marginTop: 6, marginBottom: 0, lineHeight: 1.5 }}>
                 Welcome to your real-time telemetry and rotating AI intelligence.
@@ -249,7 +249,7 @@ export default function Dashboard() {
             <div style={{ marginTop: 16, width: '100%', display: 'flex', gap: 20, alignItems: 'stretch' }}>
               <div className="xn-card" style={{ flex: 1, padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'linear-gradient(135deg, var(--bg-card), rgba(6,182,212,0.05))', border: '1px solid rgba(6,182,212,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.05)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(6,182,212,0.1)', color: '#06B6D4', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(6,182,212,0.1)', color: '#F97316', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                   </div>
                   <div>
@@ -258,7 +258,7 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div style={{ textAlign: 'right', borderLeft: '1px solid var(--border-light)', paddingLeft: 24 }}>
-                  <p style={{ fontSize: 24, fontWeight: 800, color: '#06B6D4', margin: '0 0 4px 0', letterSpacing: 1 }}>{liveTime.toLocaleTimeString()}</p>
+                  <p style={{ fontSize: 24, fontWeight: 800, color: '#F97316', margin: '0 0 4px 0', letterSpacing: 1 }}>{liveTime.toLocaleTimeString()}</p>
                   <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-muted)', margin: 0 }}>{liveTime.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
                 </div>
               </div>
@@ -283,7 +283,7 @@ export default function Dashboard() {
 
         {loading || !stats ? (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '50vh', gap: 12, color: 'var(--text-muted)', fontSize: 14 }}>
-            <span style={{ width: 20, height: 20, border: '3px solid #E5E7EB', borderTopColor: '#06B6D4', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }}/>
+            <span style={{ width: 20, height: 20, border: '3px solid #E5E7EB', borderTopColor: '#F97316', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }}/>
             <span style={{ fontWeight: 600, letterSpacing: '.3px' }}>Syncing telemetry stream…</span>
           </div>
         ) : (
@@ -301,13 +301,13 @@ export default function Dashboard() {
                 {/* Dynamic Recommendation Panel */}
                 <div className="xn-card" style={{ padding: '20px 24px', background: 'linear-gradient(135deg, rgba(79,70,229,.08), var(--bg-card))', border: '1px solid rgba(79,70,229,.15)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                        <h3 style={{ fontSize: 12, fontWeight: 800, color: '#0891B2', textTransform: 'uppercase', letterSpacing: '.6px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <h3 style={{ fontSize: 12, fontWeight: 800, color: '#EA580C', textTransform: 'uppercase', letterSpacing: '.6px', display: 'flex', alignItems: 'center', gap: 6 }}>
                             <IconSparkles /> Live AI Recommendation
                         </h3>
                         {recommendations.length > 0 && (
                             <div style={{ display: 'flex', gap: 4 }}>
                                 {recommendations.map((_, i) => (
-                                    <div key={i} style={{ width: 6, height: 6, borderRadius: '50%', background: i === activeRecIndex ? '#06B6D4' : '#C7D2FE', transition: 'background .3s' }} />
+                                    <div key={i} style={{ width: 6, height: 6, borderRadius: '50%', background: i === activeRecIndex ? '#F97316' : '#C7D2FE', transition: 'background .3s' }} />
                                 ))}
                             </div>
                         )}
@@ -317,12 +317,12 @@ export default function Dashboard() {
                         <div style={{ animation: 'fadeUp .4s ease both' }} key={activeRec.id}>
                             <h4 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-main)', marginBottom: 6 }}>{activeRec.title}</h4>
                             <p style={{ fontSize: 13, color: '#4B5563', marginBottom: 16, lineHeight: 1.5 }}>
-                                <strong style={{ color: '#06B6D4' }}>Action:</strong> {activeRec.action} <br/>
+                                <strong style={{ color: '#F97316' }}>Action:</strong> {activeRec.action} <br/>
                                 <span style={{ opacity: 0.8 }}>Impact: {activeRec.impact}</span>
                             </p>
                             <button 
                                 onClick={() => navigate('/agent', { state: { prefillAudience: activeRec.title } })}
-                                style={{ width: '100%', padding: '10px', background: '#06B6D4', color: 'var(--bg-card)', border: 'none', borderRadius: 10, fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, cursor: 'pointer', boxShadow: '0 4px 12px rgba(79,70,229,.25)', transition: 'transform .1s' }}
+                                style={{ width: '100%', padding: '10px', background: '#F97316', color: 'var(--bg-card)', border: 'none', borderRadius: 10, fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, cursor: 'pointer', boxShadow: '0 4px 12px rgba(79,70,229,.25)', transition: 'transform .1s' }}
                                 onMouseDown={e => e.currentTarget.style.transform = 'scale(0.98)'}
                                 onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
                             >
@@ -404,15 +404,15 @@ export default function Dashboard() {
                         boxShadow: '0 10px 30px rgba(0,0,0,.15)'
                     }}>
                         <div style={{ position: 'absolute', top: -10, right: -10, opacity: .08 }}>
-                            <svg width="120" height="120" fill="#06B6D4" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            <svg width="120" height="120" fill="#F97316" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                            <h3 style={{ fontSize: 12, fontWeight: 800, color: '#06B6D4', letterSpacing: '.5px', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 6 }}>
+                            <h3 style={{ fontSize: 12, fontWeight: 800, color: '#F97316', letterSpacing: '.5px', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 6 }}>
                                 <IconZap /> System Insights
                             </h3>
                             <div style={{ display: 'flex', gap: 3 }}>
                                 {[0,1,2].map(i => (
-                                    <div key={i} style={{ width: 4, height: 4, borderRadius: '50%', background: i === activeInsightIndex ? '#06B6D4' : '#4B5563', transition: 'background .3s' }} />
+                                    <div key={i} style={{ width: 4, height: 4, borderRadius: '50%', background: i === activeInsightIndex ? '#F97316' : '#4B5563', transition: 'background .3s' }} />
                                 ))}
                             </div>
                         </div>
@@ -433,7 +433,7 @@ export default function Dashboard() {
                         ) : (
                             liveFeed.map((log, i) => (
                             <div key={log.id} style={{ fontSize: 11.5, lineHeight: 1.5, display: 'flex', gap: 8, animation: 'fadeUp .3s ease both' }}>
-                                <span style={{ color: log.type === 'failed' ? '#EF4444' : '#06B6D4', fontFamily: 'monospace', fontSize: 10, flexShrink: 0, marginTop: 1 }}>[{log.time}]</span>
+                                <span style={{ color: log.type === 'failed' ? '#EF4444' : '#F97316', fontFamily: 'monospace', fontSize: 10, flexShrink: 0, marginTop: 1 }}>[{log.time}]</span>
                                 <span style={{ color: i === 0 ? 'var(--text-main)' : '#6B7280', fontWeight: i === 0 ? 600 : 400, wordBreak: 'break-word' }}>
                                 {log.text}
                                 </span>

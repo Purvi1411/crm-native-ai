@@ -7,7 +7,7 @@ const IconSettings = () => <svg width="18" height="18" fill="none" stroke="curre
 const Toggle = ({ value, onChange }) => (
   <button onClick={() => onChange(!value)} style={{
     width: 44, height: 24, borderRadius: 12, border: 'none', cursor: 'pointer',
-    background: value ? '#06B6D4' : '#E5E7EB', position: 'relative', transition: 'background .2s', flexShrink: 0
+    background: value ? '#F97316' : '#E5E7EB', position: 'relative', transition: 'background .2s', flexShrink: 0
   }}>
     <span style={{
       position: 'absolute', top: 3, left: value ? 22 : 3, width: 18, height: 18,
@@ -144,8 +144,8 @@ export default function Settings() {
               </SettingRow>
               <SettingRow label="AI Temperature" desc="Higher = more creative, Lower = more precise">
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <input type="range" min="0" max="1" step="0.1" value={settings.temperature} onChange={e => set('temperature', e.target.value)} style={{ width: 100, accentColor: '#06B6D4' }} />
-                  <span style={{ fontSize: 12, fontWeight: 700, color: '#06B6D4', width: 28, textAlign: 'right' }}>{settings.temperature}</span>
+                  <input type="range" min="0" max="1" step="0.1" value={settings.temperature} onChange={e => set('temperature', e.target.value)} style={{ width: 100, accentColor: '#F97316' }} />
+                  <span style={{ fontSize: 12, fontWeight: 700, color: '#F97316', width: 28, textAlign: 'right' }}>{settings.temperature}</span>
                 </div>
               </SettingRow>
             </Section>
@@ -158,7 +158,7 @@ export default function Settings() {
               {[
                 { key: 'whatsappEnabled', label: 'WhatsApp', color: '#22C55E', icon: '💬' },
                 { key: 'emailEnabled',    label: 'Email',     color: '#3B82F6', icon: '📧' },
-                { key: 'smsEnabled',      label: 'SMS',       color: '#06B6D4', icon: '📱' },
+                { key: 'smsEnabled',      label: 'SMS',       color: '#F97316', icon: '📱' },
                 { key: 'rcsEnabled',      label: 'RCS',       color: '#8B5CF6', icon: '📡' },
               ].map(ch => (
                 <SettingRow key={ch.key} label={`${ch.icon} ${ch.label}`}>

@@ -12,11 +12,11 @@ const geoUrlIndia =
 
 // 30 rich unique state colours
 const STATE_COLORS = [
-  "#22D3EE","#8B5CF6","#EC4899","#F43F5E","#14B8A6",
-  "#0EA5E9","#06B6D4","#EAB308","#10B981","#3B82F6",
-  "#06B6D4","#A855F7","#84CC16","#F59E0B","#22C55E",
-  "#E11D48","#7C3AED","#0891B2","#D97706","#059669",
-  "#06B6D4","#BE185D","#0D9488","#1D4ED8","#15803D",
+  "#FB923C","#8B5CF6","#EC4899","#F43F5E","#14B8A6",
+  "#0EA5E9","#F97316","#EAB308","#10B981","#3B82F6",
+  "#F97316","#A855F7","#84CC16","#F59E0B","#22C55E",
+  "#E11D48","#7C3AED","#EA580C","#D97706","#059669",
+  "#F97316","#BE185D","#0D9488","#1D4ED8","#15803D",
   "#7E22CE","#B45309","#0369A1","#047857","#B91C1C",
 ];
 
@@ -173,7 +173,7 @@ const GeoMap = ({ customers }) => {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
         <div>
           <h2 style={{ fontSize: 18, fontWeight: 800, color: "var(--text-main)", display: "flex", alignItems: "center", gap: 8, margin: 0 }}>
-            <span style={{ display: "inline-block", width: 10, height: 10, borderRadius: "50%", background: "linear-gradient(135deg,#22D3EE,#EC4899)", boxShadow: "0 0 8px rgba(99,102,241,0.6)" }} />
+            <span style={{ display: "inline-block", width: 10, height: 10, borderRadius: "50%", background: "linear-gradient(135deg,#FB923C,#EC4899)", boxShadow: "0 0 8px rgba(99,102,241,0.6)" }} />
             India Customer Map
           </h2>
           <p style={{ fontSize: 12, color: "var(--text-muted)", margin: "4px 0 0" }}>

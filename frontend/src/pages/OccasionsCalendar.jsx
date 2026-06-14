@@ -15,7 +15,7 @@ const OCCASIONS = [
   // January
   { id: 1, month: 0, date: 1, title: "New Year's Day", desc: 'Kick off the year with fresh promotions and resolutions.', color: '#3B82F6' },
   { id: 2, month: 0, date: 14, title: 'Makar Sankranti / Pongal', desc: 'Harvest festival greetings and festive discounts.', color: '#EAB308' },
-  { id: 3, month: 0, date: 26, title: 'Republic Day', desc: 'National pride campaigns and patriotic sales.', color: '#06B6D4' },
+  { id: 3, month: 0, date: 26, title: 'Republic Day', desc: 'National pride campaigns and patriotic sales.', color: '#F97316' },
   
   // February
   { id: 4, month: 1, date: 14, title: "Valentine's Day", desc: 'Couples, gifting, and love-themed marketing pushes.', color: '#EC4899' },
@@ -44,14 +44,14 @@ const OCCASIONS = [
   { id: 19, month: 5, date: 30, title: 'World Social Media Day', desc: 'Engage followers, viral campaigns, and digital-only offers.', color: '#3B82F6' },
   
   // July
-  { id: 20, month: 6, date: 1, title: "National Doctor's Day", desc: 'Healthcare appreciation and frontline worker discounts.', color: '#06B6D4' },
+  { id: 20, month: 6, date: 1, title: "National Doctor's Day", desc: 'Healthcare appreciation and frontline worker discounts.', color: '#F97316' },
   { id: 21, month: 6, date: 17, title: 'World Emoji Day', desc: 'Fun, highly visual, and highly interactive social campaigns.', color: '#FACC15' },
   { id: 22, month: 6, date: 30, title: 'International Friendship Day', desc: 'Refer-a-friend bonuses and BOGO (Buy One Get One) deals.', color: '#F472B6' },
   
   // August
   { id: 41, month: 7, date: 1, title: 'Back to School', desc: 'Early bird student offers, electronics, and apparel sales.', color: '#EAB308' },
   { id: 23, month: 7, date: 12, title: 'International Youth Day', desc: 'Gen-Z targeted campaigns and student discounts.', color: '#8B5CF6' },
-  { id: 24, month: 7, date: 15, title: 'Independence Day', desc: 'Freedom sales and nation-wide celebratory offers.', color: '#06B6D4' },
+  { id: 24, month: 7, date: 15, title: 'Independence Day', desc: 'Freedom sales and nation-wide celebratory offers.', color: '#F97316' },
   { id: 25, month: 7, date: 19, title: 'World Photography Day', desc: 'Visual contests, UGC campaigns, and creative marketing.', color: '#64748B' },
   { id: 26, month: 7, date: 28, title: 'Raksha Bandhan', desc: 'Sibling gifting, emotional campaigns, and bundle offers.', color: '#10B981' },
   
@@ -60,16 +60,16 @@ const OCCASIONS = [
   { id: 28, month: 8, date: 27, title: 'World Tourism Day', desc: 'Travel deals, luggage sales, and experience-based marketing.', color: '#0284C7' },
   
   // October
-  { id: 29, month: 9, date: 2, title: 'Gandhi Jayanti', desc: 'Khadi sales, peace messages, and localized offers.', color: '#06B6D4' },
+  { id: 29, month: 9, date: 2, title: 'Gandhi Jayanti', desc: 'Khadi sales, peace messages, and localized offers.', color: '#F97316' },
   { id: 30, month: 9, date: 10, title: 'World Mental Health Day', desc: 'Self-care promotions and empathetic brand messaging.', color: '#14B8A6' },
   { id: 31, month: 9, date: 24, title: 'Dussehra', desc: 'Victory of good over evil. Massive festive shopping push.', color: '#EF4444' },
-  { id: 32, month: 9, date: 31, title: 'Halloween', desc: 'Spooky discounts, costume contests, and creative engaging marketing.', color: '#0891B2' },
+  { id: 32, month: 9, date: 31, title: 'Halloween', desc: 'Spooky discounts, costume contests, and creative engaging marketing.', color: '#EA580C' },
   
   // November
   { id: 33, month: 10, date: 8, title: 'Diwali', desc: 'The biggest festive shopping season. Maximize volume and ad spend.', color: '#EAB308' },
   { id: 34, month: 10, date: 11, title: "Singles' Day (11.11)", desc: 'Global mega-sale event. High discounts and massive traffic.', color: '#EF4444' },
   { id: 35, month: 10, date: 14, title: "Children's Day", desc: 'Kids apparel, toy sales, and family-oriented campaigns.', color: '#3B82F6' },
-  { id: 36, month: 10, date: 19, title: "International Men's Day", desc: 'Menswear, grooming products, and male demographic offers.', color: '#06B6D4' },
+  { id: 36, month: 10, date: 19, title: "International Men's Day", desc: 'Menswear, grooming products, and male demographic offers.', color: '#F97316' },
   { id: 42, month: 10, date: 26, title: 'Thanksgiving', desc: 'Pre-Black Friday gratitude offers and family-focused promotions.', color: '#F59E0B' },
   { id: 37, month: 10, date: 27, title: 'Black Friday', desc: 'Unbeatable deals and high-urgency flash sales. Peak conversion.', color: '#111827' },
   { id: 38, month: 10, date: 30, title: 'Cyber Monday', desc: 'Tech sales, software deals, and extended Black Friday offers.', color: '#3B82F6' },

@@ -10,7 +10,7 @@ const RecommendationsPanel = ({ recommendations }) => {
   return (
     <div className="xn-card">
       <h3 style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-main)', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span style={{ color: '#06B6D4' }}><IconSparkles /></span> Smart AI Recommendations
+        <span style={{ color: '#F97316' }}><IconSparkles /></span> Smart AI Recommendations
       </h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {recommendations.map((rec) => (
@@ -37,7 +37,7 @@ const RecommendationsPanel = ({ recommendations }) => {
                 {rec.type}
               </span>
             </div>
-            <p style={{ fontSize: 12.5, fontWeight: 600, color: '#06B6D4', marginBottom: 3 }}>{rec.action}</p>
+            <p style={{ fontSize: 12.5, fontWeight: 600, color: '#F97316', marginBottom: 3 }}>{rec.action}</p>
             <p style={{ fontSize: 11.5, color: 'var(--text-muted)' }}>{rec.impact}</p>
           </div>
         ))}

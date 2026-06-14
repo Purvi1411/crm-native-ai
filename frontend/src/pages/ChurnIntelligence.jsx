@@ -5,7 +5,7 @@ import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Responsive
 
 const IconAlert = () => <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>;
 
-const RISK_COLORS = { high: '#EF4444', medium: '#06B6D4', low: '#22C55E' };
+const RISK_COLORS = { high: '#EF4444', medium: '#F97316', low: '#22C55E' };
 
 const riskLabel = score => score > 75 ? 'high' : score >= 40 ? 'medium' : 'low';
 
@@ -14,7 +14,7 @@ const CustomTooltip = ({ active, payload }) => {
   const d = payload[0].payload;
   return (
     <div style={{ background: 'var(--text-main)', padding: '10px 14px', borderRadius: 10, border: '1px solid rgba(239,68,68,.25)', fontSize: 12, color: 'var(--bg-card)' }}>
-      <p style={{ fontWeight: 700, color: '#06B6D4', marginBottom: 4 }}>{d.name}</p>
+      <p style={{ fontWeight: 700, color: '#F97316', marginBottom: 4 }}>{d.name}</p>
       <p>Churn Risk: <span style={{ color: RISK_COLORS[riskLabel(d.churnRiskScore)], fontWeight: 700 }}>{d.churnRiskScore}/100</span></p>
       <p>Total Spent: <span style={{ color: '#22C55E' }}>₹{d.totalSpent?.toLocaleString()}</span></p>
       <p>Visits: <span style={{ color: '#A78BFA' }}>{d.visits}</span></p>
@@ -71,7 +71,7 @@ export default function ChurnIntelligence() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 22 }}>
           {[
             { label: 'High Risk',   count: high.length,   color: '#EF4444', bg: 'rgba(239,68,68,.07)',   desc: 'Churn score > 75 — Immediate action required', key: 'high'   },
-            { label: 'Medium Risk', count: medium.length, color: '#06B6D4', bg: 'rgba(79,70,229,.07)',  desc: 'Churn score 40–75 — Monitor closely',           key: 'medium' },
+            { label: 'Medium Risk', count: medium.length, color: '#F97316', bg: 'rgba(79,70,229,.07)',  desc: 'Churn score 40–75 — Monitor closely',           key: 'medium' },
             { label: 'Low Risk',    count: low.length,    color: '#22C55E', bg: 'rgba(34,197,94,.07)',   desc: 'Churn score < 40 — Healthy & engaged',          key: 'low'    },
           ].map(r => (
             <button key={r.key} onClick={() => setSelectedRisk(selectedRisk === r.key ? 'all' : r.key)}
@@ -126,7 +126,7 @@ export default function ChurnIntelligence() {
                 <Bar dataKey="count" radius={[4,4,0,0]}>
                   {buckets.map((b, i) => {
                     const midScore = parseInt(b.range.split('-')[0]) + 10;
-                    return <Cell key={i} fill={midScore > 75 ? '#EF4444' : midScore >= 40 ? '#06B6D4' : '#22C55E'} />;
+                    return <Cell key={i} fill={midScore > 75 ? '#EF4444' : midScore >= 40 ? '#F97316' : '#22C55E'} />;
                   })}
                 </Bar>
               </BarChart>
@@ -141,7 +141,7 @@ export default function ChurnIntelligence() {
               {selectedRisk === 'all' ? 'All Customers' : `${selectedRisk.charAt(0).toUpperCase() + selectedRisk.slice(1)} Risk Customers`}
               <span style={{ marginLeft: 8, fontSize: 11, fontWeight: 600, color: 'var(--text-muted)' }}>({filtered.length})</span>
             </h3>
-            <button onClick={() => setSelectedRisk('all')} style={{ fontSize: 11, color: '#06B6D4', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer' }}>
+            <button onClick={() => setSelectedRisk('all')} style={{ fontSize: 11, color: '#F97316', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer' }}>
               {selectedRisk !== 'all' ? 'Clear filter' : ''}
             </button>
           </div>

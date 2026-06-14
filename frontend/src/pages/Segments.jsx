@@ -92,7 +92,7 @@ const Segments = () => {
   };
 
   const { pieData, barData } = computeDemographics();
-  const GENDER_COLORS = { Female: '#BE185D', Male: '#155E75' };
+  const GENDER_COLORS = { Female: '#BE185D', Male: '#C2410C' };
 
   return (
     <div className="xn-app-layout" style={{ position: 'relative' }}>
@@ -126,7 +126,7 @@ const Segments = () => {
                   <h3 style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-main)' }}>{seg.name}</h3>
                   <span style={{
                     display: 'flex', alignItems: 'center', gap: 5,
-                    background: '#EEF2FF', color: '#0891B2',
+                    background: '#EEF2FF', color: '#EA580C',
                     fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 20,
                     border: '1px solid #C7D2FE', whiteSpace: 'nowrap'
                   }}>
@@ -286,14 +286,14 @@ const Segments = () => {
                       <div>
                         <p style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: 13, display: 'flex', alignItems: 'center', gap: 6 }}>
                           {u.name || 'Unknown'}
-                          {u.gender && <span style={{ fontSize: 9, fontWeight: 700, background: u.gender === 'Female' ? '#FCE7F3' : '#E0E7FF', color: u.gender === 'Female' ? '#BE185D' : '#155E75', padding: '1px 5px', borderRadius: 4 }}>{u.gender}</span>}
+                          {u.gender && <span style={{ fontSize: 9, fontWeight: 700, background: u.gender === 'Female' ? '#FCE7F3' : '#E0E7FF', color: u.gender === 'Female' ? '#BE185D' : '#C2410C', padding: '1px 5px', borderRadius: 4 }}>{u.gender}</span>}
                           {u.ageGroup && <span style={{ fontSize: 9, fontWeight: 700, background: '#F3F4F6', color: '#4B5563', padding: '1px 5px', borderRadius: 4 }}>{u.ageGroup}</span>}
                         </p>
                         <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{u.email}</p>
                       </div>
                       <div style={{ textAlign: 'right' }}>
                         <p style={{ fontSize: 9.5, color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.4px' }}>LTV</p>
-                        <p style={{ fontSize: 14, fontWeight: 800, color: '#06B6D4' }}>₹{u.totalSpent || 0}</p>
+                        <p style={{ fontSize: 14, fontWeight: 800, color: '#F97316' }}>₹{u.totalSpent || 0}</p>
                       </div>
                     </div>
                   ))}
