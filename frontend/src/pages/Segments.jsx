@@ -142,26 +142,22 @@ const Segments = () => {
 
                 {/* Actions */}
                 <div style={{ display: 'flex', gap: 8, borderTop: '1px solid var(--border-light)', paddingTop: 12 }}>
-                  {seg.userCount > 0 ? (
-                    <>
-                      <button
-                        onClick={() => handleViewAudience(seg._id, seg.name)}
-                        className="xn-btn-ghost"
-                        style={{ flex: 1, justifyContent: 'center', fontSize: 12 }}
-                      >
-                        <IconUsers /> View Customers
-                      </button>
-                      <button
-                        onClick={() => navigate('/agent', { state: { prefillAudience: seg.name, prefillSegmentId: seg._id, prefillCriteria: seg.criteria } })}
-                        className="xn-btn-primary"
-                        style={{ flex: 1, justifyContent: 'center', fontSize: 12 }}
-                      >
-                        <IconRocket /> Campaign
-                      </button>
-                    </>
-                  ) : (
-                    <div style={{ flex: 1 }} />
-                  )}
+                  <>
+                    <button
+                      onClick={() => handleViewAudience(seg._id, seg.name)}
+                      className="xn-btn-ghost"
+                      style={{ flex: 1, justifyContent: 'center', fontSize: 12 }}
+                    >
+                      <IconUsers /> View Customers
+                    </button>
+                    <button
+                      onClick={() => navigate('/agent', { state: { prefillAudience: seg.name, prefillSegmentId: seg._id, prefillCriteria: seg.criteria } })}
+                      className="xn-btn-primary"
+                      style={{ flex: 1, justifyContent: 'center', fontSize: 12 }}
+                    >
+                      <IconRocket /> Campaign
+                    </button>
+                  </>
                   <button
                     onClick={() => handleDelete(seg._id)}
                     className="xn-btn-ghost"
