@@ -17,7 +17,7 @@ router.post('/plan', async (req, res) => {
         let systemContent = `You are an expert marketing AI. Create a campaign plan based on the user's prompt. 
         You MUST return ONLY a valid JSON object. Every single key below MUST be populated, do not leave any arrays or objects empty:
         {
-            "campaignName": "A catchy, short name for the campaign (max 3-5 words) that MUST include the occasion if specified (e.g., 'Valentine\\'s VIP Revival', 'Diwali Mega Sale')",
+            "campaignName": "MUST be the EXACT occasion or audience name mentioned in the prompt (e.g., if the prompt says 'Independence Day Loyalty Rewards', the name MUST be exactly 'Independence Day Loyalty Rewards'). Do not add extra words.",
             "objective": "A short string describing the goal",
             "filters": {
                 "minSpend": (number or 0),
@@ -298,7 +298,7 @@ router.post('/chat', async (req, res) => {
                     - If asked about segmentation: Suggest targeting high LTV customers (spent over ₹5,000) with recent inactivity (no visits in 45 days).
                     Always be professional, helpful, and speak like a data-driven marketer.
                     
-                    CRITICAL AND MANDATORY: Whenever you recommend a campaign, strategy, or segment, you ABSOLUTELY MUST append this exact tag at the very end of your response: [LAUNCH_CAMPAIGN: Audience Name]. Replace "Audience Name" with the short name of the group to target (e.g., [LAUNCH_CAMPAIGN: Inactive VIPs]). DO NOT FORGET THIS TAG UNDER ANY CIRCUMSTANCES.`
+                    CRITICAL AND MANDATORY: Whenever you recommend a campaign, strategy, or segment, you ABSOLUTELY MUST append this exact tag at the very end of your response: [LAUNCH_CAMPAIGN: Campaign Name]. Replace "Campaign Name" EXACTLY with the occasion or campaign name the user provided (e.g., if the user asks for 'Independence Day Loyalty Rewards', use [LAUNCH_CAMPAIGN: Independence Day Loyalty Rewards]). DO NOT FORGET THIS TAG UNDER ANY CIRCUMSTANCES.`
                 },
                 ...previousMessages,          // Inject the chat history
                 { role: "user", content: message } // Inject the current user message
