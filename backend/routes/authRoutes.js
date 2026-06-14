@@ -21,13 +21,13 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 
 // 2. The callback route where Google returns the data
 router.get('/google/callback', 
-  passport.authenticate('google', { session: false, failureRedirect: 'http://localhost:5173/login' }),
+  passport.authenticate('google', { session: false, failureRedirect: process.env.CLIENT_URL}),
   (req, res) => {
     // Generate our JWT token using the user object Passport attached to req
     const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
     
     // Redirect back to the React frontend, passing the token and email in the URL
-    res.redirect(`http://localhost:5173/dashboard?token=${token}&email=${encodeURIComponent(req.user.email)}`);
+    res.redirect(`${process.env.CLIENT_URL}/?token=${token}`);
   }
 );
 
@@ -51,6 +51,7 @@ router.get('/me', async (req, res) => {
     res.status(401).json({ message: 'Token failed' });
   }
 });
+console.log("CLIENT_URL =", process.env.CLIENT_URL);
 console.log("🚨🚨🚨 AUTH ROUTES FILE IS LOADING! 🚨🚨🚨");
 
 module.exports = router;
