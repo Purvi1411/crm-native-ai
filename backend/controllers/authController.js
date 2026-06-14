@@ -1,9 +1,43 @@
 const User = require('../models/User');
+const Customer = require('../models/Customer');
 const jwt = require('jsonwebtoken');
 
 // Generate a JWT Token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
+};
+
+// Seed 300 dummy customers for a newly registered user so the app is instantly usable
+const seedCustomersForUser = async (userId) => {
+    const count = await Customer.countDocuments({ userId });
+    if (count > 0) return; // Already has data
+
+    const dummyCustomers = [];
+    const ageGroups = ['18-24', '25-34', '35-44', '45-54', '55+'];
+    const maleNames = ['Aarav', 'Vihaan', 'Aditya', 'Arjun', 'Sai', 'Rohan', 'Rahul', 'Amit', 'Vikram', 'Karan'];
+    const femaleNames = ['Kavya', 'Diya', 'Ananya', 'Isha', 'Riya', 'Aisha', 'Priya', 'Neha', 'Sneha', 'Pooja'];
+    const lastNames = ['Sharma', 'Patel', 'Singh', 'Kumar', 'Das', 'Bose', 'Gupta', 'Verma', 'Jain', 'Mehta', 'Reddy', 'Rao', 'Nair'];
+
+    for (let i = 0; i < 300; i++) {
+        const isMale = Math.random() > 0.5;
+        const firstName = isMale ? maleNames[Math.floor(Math.random() * maleNames.length)] : femaleNames[Math.floor(Math.random() * femaleNames.length)];
+        const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+        const randomDaysAgo = Math.floor(Math.random() * 90);
+        const lastOrder = new Date();
+        lastOrder.setDate(lastOrder.getDate() - randomDaysAgo);
+
+        dummyCustomers.push({
+            userId,
+            name: `${firstName} ${lastName}`,
+            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${i}@example.com`,
+            totalSpent: Math.floor(Math.random() * 12000) + 500,
+            visits: Math.floor(Math.random() * 15) + 1,
+            lastOrderDate: lastOrder,
+            gender: isMale ? 'Male' : 'Female',
+            ageGroup: ageGroups[Math.floor(Math.random() * ageGroups.length)]
+        });
+    }
+    await Customer.insertMany(dummyCustomers);
 };
 
 // Register a new user
@@ -21,6 +55,8 @@ const registerUser = async (req, res) => {
     const user = await User.create({ name, email, password });
 
     if (user) {
+      await seedCustomersForUser(user._id);
+      
       res.status(201).json({
         _id: user.id,
         name: user.name,
@@ -47,6 +83,8 @@ const loginUser = async (req, res) => {
 
     // Check password
     if (user && (await user.matchPassword(password))) {
+      await seedCustomersForUser(user._id);
+
       res.json({
         _id: user.id,
         name: user.name,
