@@ -57,8 +57,30 @@ export default function Dashboard() {
   const [activeInsightIndex, setActiveInsightIndex] = useState(0);
   const [chartData, setChartData] = useState([]);
   const [connected, setConnected] = useState(false);
+  const [liveTime, setLiveTime] = useState(new Date());
+  const [locationInfo, setLocationInfo] = useState('Syncing location...');
   const esRef = useRef(null);
   const feedRef = useRef([]);
+
+  useEffect(() => {
+    const timer = setInterval(() => setLiveTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        if (data.city && data.country_name) {
+          setLocationInfo(`${data.city}, ${data.country_name}`);
+        } else {
+          setLocationInfo(Intl.DateTimeFormat().resolvedOptions().timeZone.replace('_', ' '));
+        }
+      })
+      .catch(() => {
+        setLocationInfo(Intl.DateTimeFormat().resolvedOptions().timeZone.replace('_', ' '));
+      });
+  }, []);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const urlToken = params.get('token');
@@ -215,9 +237,20 @@ export default function Dashboard() {
               <IconActivity /> Dynamic Command Center
             </h1>
             <div style={{ marginTop: 14, marginBottom: 4, padding: '16px 20px', background: 'linear-gradient(135deg, rgba(79,70,229,0.1), transparent)', borderLeft: '4px solid #4F46E5', borderRadius: '8px 12px 12px 8px' }}>
-              <p style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-main)', margin: 0 }}>
-                Hello, <span style={{ color: '#4F46E5' }}>{userEmail || 'Welcome back'}</span>! 👋
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <p style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-main)', margin: 0 }}>
+                  Hello, <span style={{ color: '#4F46E5' }}>{userEmail || 'Welcome back'}</span>! 👋
+                </p>
+                <div style={{ textAlign: 'right' }}>
+                  <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 6 }}>
+                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {locationInfo}
+                  </p>
+                  <p style={{ fontSize: 12, color: 'var(--text-muted)', margin: 0, fontWeight: 600, marginTop: 2 }}>
+                    {liveTime.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} • {liveTime.toLocaleTimeString()}
+                  </p>
+                </div>
+              </div>
               <p style={{ fontSize: 14, color: 'var(--text-muted)', marginTop: 6, marginBottom: 0, lineHeight: 1.5 }}>
                 Welcome to your real-time telemetry and rotating AI intelligence.
               </p>
