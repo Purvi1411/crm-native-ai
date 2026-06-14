@@ -87,7 +87,7 @@ export default function Recommendations() {
         {/* Recommendation cards */}
         {loading ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)', fontSize: 13 }}>
-            <span style={{ width: 16, height: 16, border: '2.5px solid #E5E7EB', borderTopColor: '#F97316', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }} />
+            <span style={{ width: 16, height: 16, border: '2.5px solid #E5E7EB', borderTopColor: '#4F46E5', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }} />
             Generating AI recommendations…
           </div>
         ) : (
@@ -130,9 +130,9 @@ export default function Recommendations() {
                       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7,
                       padding: '9px', borderRadius: 9, fontSize: 12.5, fontWeight: 700,
                       border: 'none', cursor: isLaunched ? 'default' : 'pointer',
-                      background: isLaunched ? '#22C55E' : '#F97316',
+                      background: isLaunched ? '#22C55E' : '#4F46E5',
                       color: 'var(--bg-card)', transition: 'all .2s', fontFamily: 'Inter, sans-serif',
-                      boxShadow: isLaunched ? 'none' : '0 4px 12px rgba(249,115,22,.3)'
+                      boxShadow: isLaunched ? 'none' : '0 4px 12px rgba(79,70,229,.3)'
                     }}
                   >
                     {isLaunched ? '✓ Launching Campaign…' : (<><IconRocket /> Launch Campaign</>)}

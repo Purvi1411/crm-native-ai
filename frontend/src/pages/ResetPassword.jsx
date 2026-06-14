@@ -91,15 +91,15 @@ export default function ResetPassword() {
           color: #111827;
         }
         .xp-inp:focus {
-          border-color: #F97316;
+          border-color: #4F46E5;
           outline: none;
           background: #fff;
-          box-shadow: 0 0 0 4px rgba(249,115,22,0.1);
+          box-shadow: 0 0 0 4px rgba(79,70,229,0.1);
         }
         .xp-btn {
           width: 100%;
           padding: 16px;
-          background: #F97316;
+          background: #4F46E5;
           color: #fff;
           font-size: 17px;
           font-weight: 700;
@@ -109,13 +109,13 @@ export default function ResetPassword() {
           margin-top: 10px;
           transition: all 0.2s;
         }
-        .xp-btn:hover { background: #ea580c; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(249,115,22,0.3); }
+        .xp-btn:hover { background: #4338CA; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.3); }
         .xp-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
         
         .dark .xp-root { background: #0a0a0f; }
         .dark .xp-card { background: #111118; border-color: #1e1e2a; box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
         .dark .xp-inp { background: #1a1a24; border-color: #2a2a38; color: #f3f4f6; }
-        .dark .xp-inp:focus { background: #1c1810; border-color: #F97316; }
+        .dark .xp-inp:focus { background: #1c1810; border-color: #4F46E5; }
 
         .xp-msg { padding: 14px; border-radius: 10px; margin-bottom: 20px; font-size: 14px; }
         .xp-msg.error { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
@@ -126,7 +126,7 @@ export default function ResetPassword() {
       
       <div className="xp-root">
         <div style={{ position:'absolute', top:22, right:26, display:'flex', gap:8 }}>
-          <button onClick={() => setIsDark(false)} style={{ width:38, height:38, borderRadius:'50%', border:'1.5px solid', borderColor: !isDark?'#F97316':'#E5E7EB', background: !isDark?'#FFF1E6':'transparent', cursor:'pointer', color:'#F97316' }}>
+          <button onClick={() => setIsDark(false)} style={{ width:38, height:38, borderRadius:'50%', border:'1.5px solid', borderColor: !isDark?'#4F46E5':'#E5E7EB', background: !isDark?'#FFF1E6':'transparent', cursor:'pointer', color:'#4F46E5' }}>
             ☀️
           </button>
           <button onClick={() => setIsDark(true)} style={{ width:38, height:38, borderRadius:'50%', border:'1.5px solid', borderColor: isDark?'#6366F1':'#E5E7EB', background: isDark?'rgba(99,102,241,0.1)':'transparent', cursor:'pointer', color:'#6366F1' }}>
@@ -136,7 +136,7 @@ export default function ResetPassword() {
 
         <div className="xp-card">
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom: 20, background: '#fff', borderRadius: 16, padding: 6, boxShadow: '0 8px 24px rgba(249,115,22,0.4)', border: '2px solid rgba(249,115,22,0.3)' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom: 20, background: '#fff', borderRadius: 16, padding: 6, boxShadow: '0 8px 24px rgba(79,70,229,0.4)', border: '2px solid rgba(79,70,229,0.3)' }}>
               <img src="/pwa-192x192.svg" alt="Logo" style={{ width: 48, height: 48 }} />
             </div>
             <h2 style={{ fontSize:28, fontWeight:800, color: isDark ? '#fff' : '#111827', margin: 0 }}>Reset Password</h2>
@@ -163,7 +163,7 @@ export default function ResetPassword() {
           </form>
 
           <div style={{ textAlign: 'center', marginTop: 24 }}>
-            <Link to="/login" style={{ color: '#F97316', fontWeight: 600, textDecoration: 'none' }}>
+            <Link to="/login" style={{ color: '#4F46E5', fontWeight: 600, textDecoration: 'none' }}>
               ← Back to Login
             </Link>
           </div>

@@ -126,9 +126,9 @@ const Segments = () => {
                   <h3 style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-main)' }}>{seg.name}</h3>
                   <span style={{
                     display: 'flex', alignItems: 'center', gap: 5,
-                    background: '#FFF7ED', color: '#EA580C',
+                    background: '#EEF2FF', color: '#4338CA',
                     fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 20,
-                    border: '1px solid #FED7AA', whiteSpace: 'nowrap'
+                    border: '1px solid #C7D2FE', whiteSpace: 'nowrap'
                   }}>
                     <IconUsers /> {seg.userCount || 0}
                   </span>
@@ -297,7 +297,7 @@ const Segments = () => {
                       </div>
                       <div style={{ textAlign: 'right' }}>
                         <p style={{ fontSize: 9.5, color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.4px' }}>LTV</p>
-                        <p style={{ fontSize: 14, fontWeight: 800, color: '#F97316' }}>₹{u.totalSpent || 0}</p>
+                        <p style={{ fontSize: 14, fontWeight: 800, color: '#4F46E5' }}>₹{u.totalSpent || 0}</p>
                       </div>
                     </div>
                   ))}

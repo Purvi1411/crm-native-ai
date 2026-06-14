@@ -15,7 +15,7 @@ const OCCASIONS = [
   // January
   { id: 1, month: 0, date: 1, title: "New Year's Day", desc: 'Kick off the year with fresh promotions and resolutions.', color: '#3B82F6' },
   { id: 2, month: 0, date: 14, title: 'Makar Sankranti / Pongal', desc: 'Harvest festival greetings and festive discounts.', color: '#EAB308' },
-  { id: 3, month: 0, date: 26, title: 'Republic Day', desc: 'National pride campaigns and patriotic sales.', color: '#F97316' },
+  { id: 3, month: 0, date: 26, title: 'Republic Day', desc: 'National pride campaigns and patriotic sales.', color: '#4F46E5' },
   
   // February
   { id: 4, month: 1, date: 14, title: "Valentine's Day", desc: 'Couples, gifting, and love-themed marketing pushes.', color: '#EC4899' },
@@ -51,7 +51,7 @@ const OCCASIONS = [
   // August
   { id: 41, month: 7, date: 1, title: 'Back to School', desc: 'Early bird student offers, electronics, and apparel sales.', color: '#EAB308' },
   { id: 23, month: 7, date: 12, title: 'International Youth Day', desc: 'Gen-Z targeted campaigns and student discounts.', color: '#8B5CF6' },
-  { id: 24, month: 7, date: 15, title: 'Independence Day', desc: 'Freedom sales and nation-wide celebratory offers.', color: '#F97316' },
+  { id: 24, month: 7, date: 15, title: 'Independence Day', desc: 'Freedom sales and nation-wide celebratory offers.', color: '#4F46E5' },
   { id: 25, month: 7, date: 19, title: 'World Photography Day', desc: 'Visual contests, UGC campaigns, and creative marketing.', color: '#64748B' },
   { id: 26, month: 7, date: 28, title: 'Raksha Bandhan', desc: 'Sibling gifting, emotional campaigns, and bundle offers.', color: '#10B981' },
   
@@ -60,10 +60,10 @@ const OCCASIONS = [
   { id: 28, month: 8, date: 27, title: 'World Tourism Day', desc: 'Travel deals, luggage sales, and experience-based marketing.', color: '#0284C7' },
   
   // October
-  { id: 29, month: 9, date: 2, title: 'Gandhi Jayanti', desc: 'Khadi sales, peace messages, and localized offers.', color: '#F97316' },
+  { id: 29, month: 9, date: 2, title: 'Gandhi Jayanti', desc: 'Khadi sales, peace messages, and localized offers.', color: '#4F46E5' },
   { id: 30, month: 9, date: 10, title: 'World Mental Health Day', desc: 'Self-care promotions and empathetic brand messaging.', color: '#14B8A6' },
   { id: 31, month: 9, date: 24, title: 'Dussehra', desc: 'Victory of good over evil. Massive festive shopping push.', color: '#EF4444' },
-  { id: 32, month: 9, date: 31, title: 'Halloween', desc: 'Spooky discounts, costume contests, and creative engaging marketing.', color: '#EA580C' },
+  { id: 32, month: 9, date: 31, title: 'Halloween', desc: 'Spooky discounts, costume contests, and creative engaging marketing.', color: '#4338CA' },
   
   // November
   { id: 33, month: 10, date: 8, title: 'Diwali', desc: 'The biggest festive shopping season. Maximize volume and ad spend.', color: '#EAB308' },

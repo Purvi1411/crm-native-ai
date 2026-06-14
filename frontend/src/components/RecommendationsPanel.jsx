@@ -10,7 +10,7 @@ const RecommendationsPanel = ({ recommendations }) => {
   return (
     <div className="xn-card">
       <h3 style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-main)', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span style={{ color: '#F97316' }}><IconSparkles /></span> Smart AI Recommendations
+        <span style={{ color: '#4F46E5' }}><IconSparkles /></span> Smart AI Recommendations
       </h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {recommendations.map((rec) => (
@@ -24,7 +24,7 @@ const RecommendationsPanel = ({ recommendations }) => {
               cursor: 'pointer',
               transition: 'border-color .2s, background .2s'
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = '#FED7AA'; e.currentTarget.style.background = '#FFF7ED'; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#C7D2FE'; e.currentTarget.style.background = '#EEF2FF'; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-light)'; e.currentTarget.style.background = 'var(--bg-ghost)'; }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 4 }}>
@@ -37,7 +37,7 @@ const RecommendationsPanel = ({ recommendations }) => {
                 {rec.type}
               </span>
             </div>
-            <p style={{ fontSize: 12.5, fontWeight: 600, color: '#F97316', marginBottom: 3 }}>{rec.action}</p>
+            <p style={{ fontSize: 12.5, fontWeight: 600, color: '#4F46E5', marginBottom: 3 }}>{rec.action}</p>
             <p style={{ fontSize: 11.5, color: 'var(--text-muted)' }}>{rec.impact}</p>
           </div>
         ))}

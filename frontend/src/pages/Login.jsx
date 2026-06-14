@@ -14,16 +14,16 @@ const LineChart = () => (
   <svg width="100%" height="70" viewBox="0 0 260 70" preserveAspectRatio="none" fill="none">
     <defs>
       <linearGradient id="lcg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#F97316" stopOpacity="0.18"/>
-        <stop offset="100%" stopColor="#F97316" stopOpacity="0"/>
+        <stop offset="0%" stopColor="#4F46E5" stopOpacity="0.18"/>
+        <stop offset="100%" stopColor="#4F46E5" stopOpacity="0"/>
       </linearGradient>
     </defs>
     <path d="M0 55 L30 50 L55 52 L80 45 L105 38 L130 40 L160 30 L185 22 L210 14 L235 10 L260 6"
-      stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      stroke="#4F46E5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M0 55 L30 50 L55 52 L80 45 L105 38 L130 40 L160 30 L185 22 L210 14 L235 10 L260 6 V70 H0Z"
       fill="url(#lcg)"/>
     {[[0,55],[30,50],[55,52],[80,45],[105,38],[130,40],[160,30],[185,22],[210,14],[235,10],[260,6]].map(([x,y],i)=>(
-      <circle key={i} cx={x} cy={y} r="3" fill="#fff" stroke="#F97316" strokeWidth="1.5"/>
+      <circle key={i} cx={x} cy={y} r="3" fill="#fff" stroke="#4F46E5" strokeWidth="1.5"/>
     ))}
     {['May 1','May 9','May 15','May 21','May 28','Jun 4'].map((l, i) => (
       <text key={l} x={8 + i * 50} y="68" fontSize="9" fill="#9CA3AF" textAnchor="middle">{l}</text>
@@ -106,11 +106,11 @@ export default function Login() {
           --xp-input-border: #E5E7EB;
           --xp-input-focus-bg: #FFFBF7;
           --xp-badge-bg: #FFF1E6;
-          --xp-badge-border: #FED7AA;
+          --xp-badge-border: #C7D2FE;
           --xp-feat-bg: #fff;
           --xp-stat-bg: #fff;
-          --xp-ai-card-bg: #FFF7ED;
-          --xp-ai-card-border: #FED7AA;
+          --xp-ai-card-bg: #EEF2FF;
+          --xp-ai-card-border: #C7D2FE;
           --xp-dropdown-bg: #F3F4F6;
           --xp-right-shadow: -4px 0 40px rgba(0,0,0,0.04);
           background: var(--xp-bg);
@@ -133,12 +133,12 @@ export default function Login() {
           --xp-input-bg: #1a1a24;
           --xp-input-border: #2a2a38;
           --xp-input-focus-bg: #1c1810;
-          --xp-badge-bg: rgba(249,115,22,0.12);
-          --xp-badge-border: rgba(249,115,22,0.25);
+          --xp-badge-bg: rgba(79,70,229,0.12);
+          --xp-badge-border: rgba(79,70,229,0.25);
           --xp-feat-bg: #18181f;
           --xp-stat-bg: #18181f;
-          --xp-ai-card-bg: rgba(249,115,22,0.08);
-          --xp-ai-card-border: rgba(249,115,22,0.2);
+          --xp-ai-card-bg: rgba(79,70,229,0.08);
+          --xp-ai-card-border: rgba(79,70,229,0.2);
           --xp-dropdown-bg: #22222e;
           --xp-right-shadow: -4px 0 40px rgba(0,0,0,0.3);
           background: var(--xp-bg);
@@ -181,8 +181,8 @@ export default function Login() {
           background:var(--xp-input-bg); transition:all .25s ease; overflow:hidden;
         }
         .xp-iw:focus-within {
-          border-color:#F97316; background:var(--xp-input-focus-bg);
-          box-shadow:0 0 0 4px rgba(249,115,22,.12);
+          border-color:#4F46E5; background:var(--xp-input-focus-bg);
+          box-shadow:0 0 0 4px rgba(79,70,229,.12);
         }
         .xp-ii { padding:0 14px; color:var(--xp-text-faint); display:flex; align-items:center; flex-shrink:0; }
         .xp-inp {
@@ -202,17 +202,17 @@ export default function Login() {
           padding:0 14px; background:none; border:none; cursor:pointer;
           color:var(--xp-text-faint); display:flex; align-items:center; transition:color .2s;
         }
-        .xp-eye:hover { color:#F97316; }
+        .xp-eye:hover { color:#4F46E5; }
 
         .xp-btn {
-          width:100%; padding:16px; background:#F97316; color:#fff;
+          width:100%; padding:16px; background:#4F46E5; color:#fff;
           font-size:17px; font-weight:700; border:none; border-radius:12px; cursor:pointer;
-          box-shadow:0 4px 16px rgba(249,115,22,.35); transition:all .25s ease; font-family:inherit;
+          box-shadow:0 4px 16px rgba(79,70,229,.35); transition:all .25s ease; font-family:inherit;
           letter-spacing:0.3px;
         }
         .xp-btn:hover {
-          background:#EA6C0A; transform:translateY(-2px);
-          box-shadow:0 8px 28px rgba(249,115,22,.4);
+          background:#4338CA; transform:translateY(-2px);
+          box-shadow:0 8px 28px rgba(79,70,229,.4);
         }
         .xp-btn:active { transform:translateY(0); }
         .xp-btn:disabled { opacity:.7; cursor:not-allowed; transform:none; }
@@ -292,14 +292,14 @@ export default function Login() {
           {/* Logo */}
           <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:30, animation:'slideRight .5s ease both' }}>
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L13.5 8H20L14.5 12L16.5 18L12 14.5L7.5 18L9.5 12L4 8H10.5L12 2Z" fill="#F97316" stroke="#F97316" strokeWidth="0.5" strokeLinejoin="round"/>
+              <path d="M12 2L13.5 8H20L14.5 12L16.5 18L12 14.5L7.5 18L9.5 12L4 8H10.5L12 2Z" fill="#4F46E5" stroke="#4F46E5" strokeWidth="0.5" strokeLinejoin="round"/>
             </svg>
             <span style={{ fontSize:26, fontWeight:800, color:'var(--xp-text)', letterSpacing:'-0.5px' }}>Xeno</span>
           </div>
 
           {/* Badge */}
           <div style={{ marginBottom:22, animation:'fadeUp .5s ease both .1s' }}>
-            <span style={{ display:'inline-flex', alignItems:'center', gap:7, background:'var(--xp-badge-bg)', border:'1px solid var(--xp-badge-border)', color:'#C2410C', fontSize:12, fontWeight:700, padding:'6px 14px', borderRadius:20, letterSpacing:'0.8px', textTransform:'uppercase' }}>
+            <span style={{ display:'inline-flex', alignItems:'center', gap:7, background:'var(--xp-badge-bg)', border:'1px solid var(--xp-badge-border)', color:'#3730A3', fontSize:12, fontWeight:700, padding:'6px 14px', borderRadius:20, letterSpacing:'0.8px', textTransform:'uppercase' }}>
               🤖 AI-NATIVE MINI CRM
             </span>
           </div>
@@ -312,7 +312,7 @@ export default function Login() {
               <h1 style={{ fontSize:'clamp(32px, 3.2vw, 44px)', fontWeight:900, color:'var(--xp-text)', lineHeight:1.15, letterSpacing:'-1.2px', marginBottom:18 }}>
                 The AI-Native CRM<br/>
                 for Smarter Customer<br/>
-                <span style={{ color:'#F97316' }}>Engagement.</span>
+                <span style={{ color:'#4F46E5' }}>Engagement.</span>
               </h1>
               <p style={{ fontSize:16, color:'var(--xp-text-muted)', lineHeight:1.7, maxWidth:400 }}>
                 Xeno helps consumer brands understand their customers, build the right audiences, and run personalized campaigns across every channel – all powered by AI.
@@ -322,7 +322,7 @@ export default function Login() {
             {/* Right: floating avatars + Campaign Performance card */}
             <div style={{ animation:'fadeUp .6s ease both .25s', position:'relative', minWidth:240 }}>
               {/* Floating avatar top */}
-              <div style={{ width:52, height:52, borderRadius:'50%', background:'linear-gradient(135deg,#FBBF24,#F97316)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:24, border:'3px solid var(--xp-card-bg)', boxShadow:'0 4px 14px rgba(0,0,0,0.12)', animation:'float 3s ease-in-out infinite', position:'absolute', top:-10, left:-22, zIndex:2 }}>
+              <div style={{ width:52, height:52, borderRadius:'50%', background:'linear-gradient(135deg,#8B5CF6,#4F46E5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:24, border:'3px solid var(--xp-card-bg)', boxShadow:'0 4px 14px rgba(0,0,0,0.12)', animation:'float 3s ease-in-out infinite', position:'absolute', top:-10, left:-22, zIndex:2 }}>
                 👩
               </div>
 
@@ -339,7 +339,7 @@ export default function Login() {
                     { label:'Sent', value:'128K', color:'var(--xp-text)' },
                     { label:'Delivered', value:'98.5%', color:'#22C55E' },
                     { label:'Opened', value:'42.3%', color:'#3B82F6' },
-                    { label:'Clicked', value:'18.7%', color:'#F97316' },
+                    { label:'Clicked', value:'18.7%', color:'#4F46E5' },
                   ].map(s => (
                     <div key={s.label} style={{ textAlign:'center' }}>
                       <div style={{ fontSize:11, color:'var(--xp-text-faint)', marginBottom:3 }}>{s.label}</div>
@@ -352,7 +352,7 @@ export default function Login() {
               </div>
 
               {/* Second floating avatar */}
-              <div style={{ width:44, height:44, borderRadius:'50%', background:'linear-gradient(135deg,#FB923C,#EA580C)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, border:'3px solid var(--xp-card-bg)', boxShadow:'0 4px 14px rgba(0,0,0,0.12)', animation:'float 3.5s ease-in-out infinite .5s', position:'absolute', bottom:-12, right:-14, zIndex:2 }}>
+              <div style={{ width:44, height:44, borderRadius:'50%', background:'linear-gradient(135deg,#FB923C,#4338CA)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, border:'3px solid var(--xp-card-bg)', boxShadow:'0 4px 14px rgba(0,0,0,0.12)', animation:'float 3.5s ease-in-out infinite .5s', position:'absolute', bottom:-12, right:-14, zIndex:2 }}>
                 🧔
               </div>
             </div>
@@ -361,7 +361,7 @@ export default function Login() {
           {/* Feature icons row (No cards) */}
           <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16, animation:'fadeUp .6s ease both .3s', marginBottom:32 }}>
             {[
-              { icon: <svg width="24" height="24" fill="none" stroke="#F97316" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>, label:'Understand Customers', sub:'Unify customer data from orders and behavior.' },
+              { icon: <svg width="24" height="24" fill="none" stroke="#4F46E5" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>, label:'Understand Customers', sub:'Unify customer data from orders and behavior.' },
               { icon: <svg width="24" height="24" fill="none" stroke="#3B82F6" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>, label:'AI-Powered Segments', sub:'Let AI find high-impact audiences in seconds.' },
               { icon: <svg width="24" height="24" fill="none" stroke="#8B5CF6" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>, label:'Personalized Campaigns', sub:'Deliver the right message on the right channel.' },
               { icon: <svg width="24" height="24" fill="none" stroke="#22C55E" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>, label:'Measure & Grow', sub:'Track performance in real time and maximize ROI.' },
@@ -383,10 +383,10 @@ export default function Login() {
             <div style={{ fontSize:13, fontWeight:700, color:'var(--xp-text-muted)', textTransform:'uppercase', letterSpacing:'0.5px', marginBottom:16 }}>Built for modern brands</div>
             <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:14 }}>
               {[
-                { icon:'👥', color:'#F97316', bg:'#FFF7ED', value:'10M+', label:'Shoppers engaged' },
+                { icon:'👥', color:'#4F46E5', bg:'#EEF2FF', value:'10M+', label:'Shoppers engaged' },
                 { icon:'📨', color:'#3B82F6', bg:'#EFF6FF', value:'2.5B+', label:'Messages sent' },
                 { icon:'✅', color:'#22C55E', bg:'#F0FDF4', value:'98%', label:'Delivery rate' },
-                { icon:'💰', color:'#FBBF24', bg:'#FFFBEB', value:'45%', label:'Avg. revenue uplift' },
+                { icon:'💰', color:'#8B5CF6', bg:'#FFFBEB', value:'45%', label:'Avg. revenue uplift' },
               ].map(s => (
                 <div key={s.label} className="xp-stat" style={{ flexDirection:'column', alignItems:'center', textAlign:'center', gap:8, padding:'16px 10px' }}>
                   <div style={{ width:40, height:40, borderRadius:10, background:s.bg, display:'flex', alignItems:'center', justifyContent:'center', fontSize:20 }}>{s.icon}</div>
@@ -404,7 +404,7 @@ export default function Login() {
               {/* Left: description + bullet points */}
               <div>
                 <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:14 }}>
-                  <div style={{ width:44, height:44, borderRadius:'50%', background:'linear-gradient(135deg,#FBBF24,#F97316)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:22 }}>🤖</div>
+                  <div style={{ width:44, height:44, borderRadius:'50%', background:'linear-gradient(135deg,#8B5CF6,#4F46E5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:22 }}>🤖</div>
                   <div>
                     <div style={{ fontSize:15, fontWeight:700, color:'var(--xp-text)' }}>AI that works for you</div>
                     <div style={{ fontSize:12, color:'var(--xp-text-muted)' }}>From audience discovery to message creation</div>
@@ -421,7 +421,7 @@ export default function Login() {
                     'Optimize send time for better results',
                   ].map(item => (
                     <li key={item} style={{ display:'flex', alignItems:'center', gap:8, fontSize:13, color:'var(--xp-text-secondary)', marginBottom:7 }}>
-                      <span style={{ color:'#F97316', fontSize:14, fontWeight:700 }}>●</span>
+                      <span style={{ color:'#4F46E5', fontSize:14, fontWeight:700 }}>●</span>
                       {item}
                     </li>
                   ))}
@@ -433,15 +433,15 @@ export default function Login() {
                 <div style={{ background:'var(--xp-ai-card-bg)', border:'1px solid var(--xp-ai-card-border)', borderRadius:14, padding:'16px 18px' }}>
                   <div style={{ display:'flex', alignItems:'center', gap:7, marginBottom:12 }}>
                     <span style={{ fontSize:14 }}>✨</span>
-                    <span style={{ fontSize:12, fontWeight:700, color:'#C2410C' }}>AI Suggested Message</span>
+                    <span style={{ fontSize:12, fontWeight:700, color:'#3730A3' }}>AI Suggested Message</span>
                   </div>
                   <div style={{ fontSize:14, color:'var(--xp-text-secondary)', lineHeight:1.6, marginBottom:12 }}>
                     <span style={{ fontWeight:700 }}>Hi Sarah!</span><br/>
                     Enjoy 20% off our new collection, just for you.
                   </div>
-                  <button style={{ fontSize:13, fontWeight:700, color:'#F97316', background:'none', border:'1.5px solid #F97316', borderRadius:8, padding:'8px 16px', cursor:'pointer', transition:'all .2s', fontFamily:'inherit' }}
-                    onMouseEnter={e=>{e.target.style.background='#F97316';e.target.style.color='#fff'}}
-                    onMouseLeave={e=>{e.target.style.background='none';e.target.style.color='#F97316'}}>
+                  <button style={{ fontSize:13, fontWeight:700, color:'#4F46E5', background:'none', border:'1.5px solid #4F46E5', borderRadius:8, padding:'8px 16px', cursor:'pointer', transition:'all .2s', fontFamily:'inherit' }}
+                    onMouseEnter={e=>{e.target.style.background='#4F46E5';e.target.style.color='#fff'}}
+                    onMouseLeave={e=>{e.target.style.background='none';e.target.style.color='#4F46E5'}}>
                     Use This Message
                   </button>
                 </div>
@@ -460,12 +460,12 @@ export default function Login() {
                   else alert('PWA Install is not available right now. This usually means the app is already installed or your browser is blocking it.');
                 }} 
                 title="Install App" 
-                style={{ height:38, padding: '0 16px', borderRadius:20, border:'2px solid #F97316', background:'var(--xp-card-bg)', display:'flex', alignItems:'center', gap: 6, cursor:'pointer', color:'#F97316', fontWeight: 700, fontSize: 13, transition:'all .2s', boxShadow: '0 2px 10px rgba(249,115,22,0.2)' }}
+                style={{ height:38, padding: '0 16px', borderRadius:20, border:'2px solid #4F46E5', background:'var(--xp-card-bg)', display:'flex', alignItems:'center', gap: 6, cursor:'pointer', color:'#4F46E5', fontWeight: 700, fontSize: 13, transition:'all .2s', boxShadow: '0 2px 10px rgba(79,70,229,0.2)' }}
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 Install App
               </button>
-            <button onClick={() => setIsDark(false)} title="Light mode" style={{ width:38, height:38, borderRadius:'50%', border:'1.5px solid', borderColor: !isDark?'#F97316':'var(--xp-input-border)', background: !isDark?'var(--xp-badge-bg)':'var(--xp-card-bg)', display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', color:'#F97316', transition:'all .2s' }}>
+            <button onClick={() => setIsDark(false)} title="Light mode" style={{ width:38, height:38, borderRadius:'50%', border:'1.5px solid', borderColor: !isDark?'#4F46E5':'var(--xp-input-border)', background: !isDark?'var(--xp-badge-bg)':'var(--xp-card-bg)', display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', color:'#4F46E5', transition:'all .2s' }}>
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1M4.22 4.22l.71.71m12.73 12.73l.71.71M3 12H2m20 0h-1M4.93 19.07l-.71-.71M19.78 4.93l-.71.71M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             </button>
             <button onClick={() => setIsDark(true)} title="Dark mode" style={{ width:38, height:38, borderRadius:'50%', border:'1.5px solid', borderColor: isDark?'#6366F1':'var(--xp-input-border)', background: isDark?'rgba(99,102,241,0.1)':'var(--xp-card-bg)', display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', color:'#6366F1', transition:'all .2s' }}>
@@ -477,11 +477,11 @@ export default function Login() {
 
             <div style={{ textAlign: 'center', marginBottom: 36 }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
-                <div style={{ background: '#fff', borderRadius: 16, padding: 6, display: 'inline-flex', boxShadow: '0 8px 24px rgba(249,115,22,0.4)', border: '2px solid rgba(249,115,22,0.3)' }}>
+                <div style={{ background: '#fff', borderRadius: 16, padding: 6, display: 'inline-flex', boxShadow: '0 8px 24px rgba(79,70,229,0.4)', border: '2px solid rgba(79,70,229,0.3)' }}>
                   <img src="/pwa-192x192.svg" alt="Xeno Logo" style={{ width: 64, height: 64 }} />
                 </div>
               </div>
-              <h2 style={{ fontSize:32, fontWeight:800, color:'var(--xp-text)', letterSpacing:'-0.5px', marginBottom:10 }}>Welcome to <span style={{ color:'#F97316' }}>Xeno</span></h2>
+              <h2 style={{ fontSize:32, fontWeight:800, color:'var(--xp-text)', letterSpacing:'-0.5px', marginBottom:10 }}>Welcome to <span style={{ color:'#4F46E5' }}>Xeno</span></h2>
               <p style={{ fontSize:16, color:'var(--xp-text-faint)' }}>Sign in to continue to your workspace</p>
             </div>
 
@@ -512,10 +512,10 @@ export default function Login() {
 
               <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', margin:'16px 0 28px' }}>
                 <label style={{ display:'flex', alignItems:'center', gap:8, fontSize:15, color:'var(--xp-text-secondary)', cursor:'pointer', userSelect:'none' }}>
-                  <input type="checkbox" checked={remember} onChange={e=>setRemember(e.target.checked)} style={{ accentColor:'#F97316', width:17, height:17 }}/>
+                  <input type="checkbox" checked={remember} onChange={e=>setRemember(e.target.checked)} style={{ accentColor:'#4F46E5', width:17, height:17 }}/>
                   Remember me
                 </label>
-                <Link to="/forgot-password" style={{ fontSize:15, color:'#F97316', fontWeight:600, textDecoration:'none', transition:'opacity .2s' }}
+                <Link to="/forgot-password" style={{ fontSize:15, color:'#4F46E5', fontWeight:600, textDecoration:'none', transition:'opacity .2s' }}
                   onMouseEnter={e=>e.target.style.opacity='0.8'} onMouseLeave={e=>e.target.style.opacity='1'}>
                   Forgot password?
                 </Link>
@@ -534,7 +534,7 @@ export default function Login() {
 
             <p style={{ textAlign:'center', marginTop:28, fontSize:16, color:'var(--xp-text-faint)' }}>
               New to Xeno?{' '}
-              <Link to="/register" style={{ color:'#F97316', fontWeight:700, textDecoration:'none', transition:'opacity .2s' }}
+              <Link to="/register" style={{ color:'#4F46E5', fontWeight:700, textDecoration:'none', transition:'opacity .2s' }}
                 onMouseEnter={e=>e.target.style.opacity='0.8'} onMouseLeave={e=>e.target.style.opacity='1'}>
                 Create an account →
               </Link>

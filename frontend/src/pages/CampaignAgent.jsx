@@ -156,7 +156,7 @@ const CampaignAgent = () => {
 
           {/* Locked audience badge */}
           {prefilledAudience && (
-            <div style={{ background: '#FFF7ED', border: '1.5px solid #FED7AA', borderRadius: 10, padding: '10px 14px', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, color: '#C2410C' }}>
+            <div style={{ background: '#EEF2FF', border: '1.5px solid #C7D2FE', borderRadius: 10, padding: '10px 14px', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, color: '#3730A3' }}>
               <IconTarget /> Locked Audience: <span style={{ textTransform: 'uppercase', letterSpacing: '.5px' }}>{prefilledAudience}</span>
             </div>
           )}
@@ -223,7 +223,7 @@ const CampaignAgent = () => {
                     )
                   )}
                   <span style={{ color: 'var(--border-light)' }}><IconArrow /></span>
-                  <div style={{ background: '#F97316', borderRadius: 8, padding: '10px 14px', textAlign: 'center', flex: 1 }}>
+                  <div style={{ background: '#4F46E5', borderRadius: 8, padding: '10px 14px', textAlign: 'center', flex: 1 }}>
                     <p style={{ fontSize: 10, color: 'rgba(255,255,255,.75)', fontWeight: 600 }}>Final Cohort</p>
                     <p style={{ fontSize: 22, fontWeight: 800, color: 'var(--bg-card)' }}>{plan.audienceCount}</p>
                   </div>
@@ -233,8 +233,8 @@ const CampaignAgent = () => {
               {/* Timeline + DNA */}
               <div className="xn-grid-responsive xn-fade-up" style={{ animationDelay: '0.2s', gap: 14 }}>
                 {/* Timeline */}
-                <div className="xn-card" style={{ background: '#0F0F0F', borderRadius: 14, padding: '20px', border: '1px solid rgba(249,115,22,.15)' }}>
-                  <h4 style={{ fontSize: 10, fontWeight: 700, color: '#F97316', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <div className="xn-card" style={{ background: '#0F0F0F', borderRadius: 14, padding: '20px', border: '1px solid rgba(79,70,229,.15)' }}>
+                  <h4 style={{ fontSize: 10, fontWeight: 700, color: '#4F46E5', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
                     <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22C55E', display: 'inline-block', animation: 'pulse 1.5s infinite' }}/>
                     AI Agent Trace Logs
                   </h4>
@@ -244,7 +244,7 @@ const CampaignAgent = () => {
                       <span>{step}</span>
                     </div>
                   ))}
-                  <div style={{ borderTop: '1px solid rgba(255,255,255,.06)', paddingTop: 10, marginTop: 6, display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#F97316', fontWeight: 700 }}>
+                  <div style={{ borderTop: '1px solid rgba(255,255,255,.06)', paddingTop: 10, marginTop: 6, display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#4F46E5', fontWeight: 700 }}>
                     <span>⚡ Confidence Matrix:</span><span>98.4%</span>
                   </div>
                 </div>
@@ -278,12 +278,12 @@ const CampaignAgent = () => {
                     <div key={ch} style={{ marginBottom: 10 }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, fontWeight: 600, marginBottom: 4, textTransform: 'uppercase' }}>
                         <span style={{ color: 'var(--text-ghost)' }}>{ch}</span>
-                        <span style={{ color: plan.channel === ch ? '#F97316' : 'var(--text-muted)' }}>
+                        <span style={{ color: plan.channel === ch ? '#4F46E5' : 'var(--text-muted)' }}>
                           {score}% {plan.channel === ch && '🎯 Recommended'}
                         </span>
                       </div>
                       <div style={{ background: 'var(--border-light)', borderRadius: 4, height: 6, overflow: 'hidden' }}>
-                        <div style={{ width: `${score}%`, height: '100%', background: plan.channel === ch ? '#F97316' : '#D1D5DB', borderRadius: 4, transition: 'width .5s ease' }}/>
+                        <div style={{ width: `${score}%`, height: '100%', background: plan.channel === ch ? '#4F46E5' : '#D1D5DB', borderRadius: 4, transition: 'width .5s ease' }}/>
                       </div>
                     </div>
                   ))}
@@ -313,14 +313,14 @@ const CampaignAgent = () => {
                 <p style={{ fontSize: 9.5, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: 5 }}>Extracted Strategic Objective</p>
                 <p style={{ fontWeight: 600, color: 'var(--text-main)', marginBottom: 16, fontSize: 14 }}>{plan.objective}</p>
 
-                <div style={{ background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 10, padding: '14px 16px', position: 'relative' }}>
-                  <span style={{ position: 'absolute', top: 0, right: 0, background: '#FED7AA', color: '#C2410C', fontSize: 9.5, fontWeight: 700, padding: '3px 9px', borderRadius: '0 10px 0 8px', textTransform: 'uppercase', letterSpacing: '.4px' }}>
+                <div style={{ background: '#EEF2FF', border: '1px solid #C7D2FE', borderRadius: 10, padding: '14px 16px', position: 'relative' }}>
+                  <span style={{ position: 'absolute', top: 0, right: 0, background: '#C7D2FE', color: '#3730A3', fontSize: 9.5, fontWeight: 700, padding: '3px 9px', borderRadius: '0 10px 0 8px', textTransform: 'uppercase', letterSpacing: '.4px' }}>
                     Stylized Copy
                   </span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#C2410C', marginBottom: 7 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#3730A3', marginBottom: 7 }}>
                     <IconMsg /> <span style={{ fontSize: 12, fontWeight: 700 }}>Tailored Message Copy</span>
                   </div>
-                  <p style={{ fontSize: 13, color: '#7C2D12', lineHeight: 1.7, fontStyle: 'italic', fontWeight: 500 }}>"{plan.message}"</p>
+                  <p style={{ fontSize: 13, color: '#312E81', lineHeight: 1.7, fontStyle: 'italic', fontWeight: 500 }}>"{plan.message}"</p>
                 </div>
               </div>
 
@@ -332,11 +332,11 @@ const CampaignAgent = () => {
                   className="xn-btn-primary"
                   style={{
                     width: '100%', padding: '16px', border: 'none', borderRadius: 12,
-                    background: plan.audienceCount === 0 ? '#E5E7EB' : 'linear-gradient(135deg, #F97316, #EA580C)',
+                    background: plan.audienceCount === 0 ? '#E5E7EB' : 'linear-gradient(135deg, #4F46E5, #4338CA)',
                     color: plan.audienceCount === 0 ? 'var(--text-muted)' : 'var(--bg-card)',
                     fontSize: 15, fontWeight: 700, cursor: plan.audienceCount === 0 ? 'not-allowed' : 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9,
-                    boxShadow: plan.audienceCount === 0 ? 'none' : '0 8px 24px rgba(249,115,22,.35)',
+                    boxShadow: plan.audienceCount === 0 ? 'none' : '0 8px 24px rgba(79,70,229,.35)',
                     transition: 'all .25s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'Inter, sans-serif'
                   }}
                 >

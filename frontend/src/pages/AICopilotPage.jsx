@@ -190,7 +190,7 @@ export default function AICopilotPage() {
                     )}
                     <div style={{ maxWidth: '75%' }}>
                       <div style={{
-                        background: msg.sender === 'user' ? '#F97316' : 'var(--bg-card)',
+                        background: msg.sender === 'user' ? '#4F46E5' : 'var(--bg-card)',
                         color: msg.sender === 'user' ? 'var(--bg-card)' : 'var(--text-main)',
                         padding: '10px 14px', borderRadius: msg.sender === 'user' ? '14px 14px 0 14px' : '0 14px 14px 14px',
                         fontSize: 13.5, lineHeight: 1.6,
@@ -208,9 +208,9 @@ export default function AICopilotPage() {
                               } })}
                               style={{
                                 display: 'flex', alignItems: 'center', gap: 7, padding: '8px 12px',
-                                background: '#F97316', color: 'var(--bg-card)', border: 'none', borderRadius: 8,
+                                background: '#4F46E5', color: 'var(--bg-card)', border: 'none', borderRadius: 8,
                                 fontSize: 12, fontWeight: 700, cursor: 'pointer', fontFamily: 'Inter, sans-serif',
-                                boxShadow: '0 4px 12px rgba(249,115,22,.25)', transition: 'all .2s'
+                                boxShadow: '0 4px 12px rgba(79,70,229,.25)', transition: 'all .2s'
                               }}
                             >
                               <IconRocket />
@@ -222,7 +222,7 @@ export default function AICopilotPage() {
                       <div style={{ fontSize: 9.5, color: 'var(--text-muted)', marginTop: 3, textAlign: msg.sender === 'user' ? 'right' : 'left' }}>{msg.time}</div>
                     </div>
                     {msg.sender === 'user' && (
-                      <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'linear-gradient(135deg,#F97316,#FBBF24)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
+                      <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'linear-gradient(135deg,#4F46E5,#8B5CF6)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
                         <IconUser />
                       </div>
                     )}

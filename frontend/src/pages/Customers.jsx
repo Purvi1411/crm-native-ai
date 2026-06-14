@@ -18,7 +18,7 @@ const ChurnBadge = ({ score, reasoning }) => {
 
   let bg = '#DCFCE7', color = '#16A34A', label = 'Low Risk';
   if (score > 75)      { bg = '#FEE2E2'; color = '#DC2626'; label = 'High Risk'; }
-  else if (score >= 40) { bg = '#FFF7ED'; color = '#D97706'; label = 'Medium Risk'; }
+  else if (score >= 40) { bg = '#EEF2FF'; color = '#D97706'; label = 'Medium Risk'; }
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }} className="churn-badge-wrap">
@@ -74,7 +74,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
 
         {loading ? (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, gap: 12, color: 'var(--text-muted)' }}>
-            <span style={{ width: 28, height: 28, border: '3px solid var(--border-light)', borderTopColor: '#F97316', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }}/>
+            <span style={{ width: 28, height: 28, border: '3px solid var(--border-light)', borderTopColor: '#4F46E5', borderRadius: '50%', display: 'inline-block', animation: 'spin .7s linear infinite' }}/>
             <span style={{ fontSize: 12 }}>Running behavior metrics extraction…</span>
           </div>
         ) : data && (
@@ -94,7 +94,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
                 <div style={{
                   height: '100%', borderRadius: 6, transition: 'width 1s ease',
                   width: `${data.customer.churnRiskScore}%`,
-                  background: data.customer.churnRiskScore >= 70 ? '#EF4444' : data.customer.churnRiskScore >= 45 ? '#F97316' : '#22C55E'
+                  background: data.customer.churnRiskScore >= 70 ? '#EF4444' : data.customer.churnRiskScore >= 45 ? '#4F46E5' : '#22C55E'
                 }}/>
               </div>
               <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 8, fontStyle: 'italic' }}>"{data.insights.riskAssessment}"</p>
@@ -107,7 +107,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
                 { icon: <IconTrend />, label: 'Total Frequency', val: `${data.customer.visits} Purchases` },
               ].map(s => (
                 <div key={s.label} style={{ background: 'var(--bg-ghost)', border: '1px solid var(--border-light)', borderRadius: 10, padding: '12px', textAlign: 'center' }}>
-                  <div style={{ color: '#F97316', display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{s.icon}</div>
+                  <div style={{ color: '#4F46E5', display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{s.icon}</div>
                   <p style={{ fontSize: 9.5, color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.4px' }}>{s.label}</p>
                   <p style={{ fontSize: 15, fontWeight: 800, color: 'var(--text-main)', marginTop: 2 }}>{s.val}</p>
                 </div>
@@ -119,8 +119,8 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
               <h5 style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '.8px', marginBottom: 8 }}>Linguistic Diagnostic Trace</h5>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 7 }}>
                 {data.insights.behavioralBullets?.map((b, i) => (
-                  <li key={i} style={{ background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 8, padding: '9px 12px', fontSize: 12, color: 'var(--text-ghost)', lineHeight: 1.5 }}>
-                    <span style={{ color: '#F97316', marginRight: 6 }}>•</span>{b}
+                  <li key={i} style={{ background: '#EEF2FF', border: '1px solid #C7D2FE', borderRadius: 8, padding: '9px 12px', fontSize: 12, color: 'var(--text-ghost)', lineHeight: 1.5 }}>
+                    <span style={{ color: '#4F46E5', marginRight: 6 }}>•</span>{b}
                   </li>
                 ))}
               </ul>
@@ -128,7 +128,7 @@ const CustomerInsightsDrawer = ({ customerId, onClose }) => {
 
             {/* Next action */}
             <div style={{ background: 'linear-gradient(135deg, #0F0F0F, #1A1230)', borderRadius: 12, padding: '16px' }}>
-              <span style={{ fontSize: 9, fontWeight: 700, background: 'rgba(249,115,22,.25)', color: '#FB923C', padding: '2px 8px', borderRadius: 12, letterSpacing: '.6px', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: 9, fontWeight: 700, background: 'rgba(79,70,229,.25)', color: '#FB923C', padding: '2px 8px', borderRadius: 12, letterSpacing: '.6px', textTransform: 'uppercase' }}>
                 Strategic Intervention
               </span>
               <p style={{ fontSize: 12, color: '#D1D5DB', marginTop: 8, lineHeight: 1.6 }}>
@@ -239,10 +239,10 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
 
         {/* Tabs */}
         <div style={{ display: 'flex', gap: 10, marginBottom: 20, borderBottom: '1px solid var(--border-light)', paddingBottom: 10 }}>
-          <button onClick={() => setTab('manual')} style={{ background: tab === 'manual' ? '#F97316' : 'transparent', color: tab === 'manual' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
+          <button onClick={() => setTab('manual')} style={{ background: tab === 'manual' ? '#4F46E5' : 'transparent', color: tab === 'manual' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
             Manual Entry
           </button>
-          <button onClick={() => setTab('csv')} style={{ background: tab === 'csv' ? '#F97316' : 'transparent', color: tab === 'csv' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
+          <button onClick={() => setTab('csv')} style={{ background: tab === 'csv' ? '#4F46E5' : 'transparent', color: tab === 'csv' ? '#fff' : 'var(--text-muted)', border: 'none', padding: '6px 12px', borderRadius: 6, cursor: 'pointer', fontSize: 13, fontWeight: 600 }}>
             CSV Upload
           </button>
         </div>

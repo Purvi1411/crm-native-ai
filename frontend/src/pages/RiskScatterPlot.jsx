@@ -26,8 +26,8 @@ const RiskScatterPlot = ({ customers }) => {
     if (active && payload && payload.length) {
       const d = payload[0].payload;
       return (
-        <div style={{ background: 'var(--text-main)', color: 'var(--bg-card)', padding: '10px 14px', borderRadius: 10, fontSize: 12, boxShadow: '0 8px 24px rgba(0,0,0,.2)', border: '1px solid rgba(249,115,22,.2)' }}>
-          <p style={{ fontWeight: 700, color: '#F97316', marginBottom: 5 }}>{d.name}</p>
+        <div style={{ background: 'var(--text-main)', color: 'var(--bg-card)', padding: '10px 14px', borderRadius: 10, fontSize: 12, boxShadow: '0 8px 24px rgba(0,0,0,.2)', border: '1px solid rgba(79,70,229,.2)' }}>
+          <p style={{ fontWeight: 700, color: '#4F46E5', marginBottom: 5 }}>{d.name}</p>
           <p>Total Spent: <span style={{ color: '#22C55E', fontWeight: 600 }}>₹{d.totalSpent}</span></p>
           <p>Last Order: <span style={{ color: '#D1D5DB' }}>{d.dateStr}</span></p>
           <p>Risk Score: <span style={{ color: d.churnRiskScore > 75 ? '#EF4444' : '#F59E0B', fontWeight: 600 }}>{d.churnRiskScore}/100</span></p>
@@ -65,7 +65,7 @@ const RiskScatterPlot = ({ customers }) => {
             <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: '3 3' }} />
             <Scatter name="Customers" data={chartData}>
               {chartData.map((entry, i) => {
-                const color = entry.churnRiskScore > 75 ? '#EF4444' : entry.churnRiskScore >= 40 ? '#F97316' : '#22C55E';
+                const color = entry.churnRiskScore > 75 ? '#EF4444' : entry.churnRiskScore >= 40 ? '#4F46E5' : '#22C55E';
                 return <Cell key={i} fill={color} />;
               })}
             </Scatter>
@@ -74,7 +74,7 @@ const RiskScatterPlot = ({ customers }) => {
       </div>
       {/* Legend */}
       <div style={{ display: 'flex', gap: 16, marginTop: 8, justifyContent: 'flex-end' }}>
-        {[['#22C55E', 'Low Risk'], ['#F97316', 'Medium Risk'], ['#EF4444', 'High Risk']].map(([c, l]) => (
+        {[['#22C55E', 'Low Risk'], ['#4F46E5', 'Medium Risk'], ['#EF4444', 'High Risk']].map(([c, l]) => (
           <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 10.5, color: '#6B7280', fontWeight: 500 }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: c }}/>
             {l}
