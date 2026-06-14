@@ -15,8 +15,8 @@ export default defineConfig({
         name: 'XenoReach AI CRM',
         short_name: 'XenoReach',
         description: 'AI Autonomous CRM',
-        theme_color: '#F97316',
-        background_color: '#F8F7F4',
+        theme_color: '#4F46E5',
+        background_color: '#EEF2FF',
         display: 'standalone',
         icons: [
           { src: '/pwa-192x192.svg', sizes: '192x192', type: 'image/svg+xml' },
