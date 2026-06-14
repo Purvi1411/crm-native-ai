@@ -27,8 +27,6 @@ const Segments = () => {
   const [loadingAudience, setLoadingAudience] = useState(false);
   const [selectedSegmentName, setSelectedSegmentName] = useState('');
 
-  useEffect(() => { fetchSegments(); }, []);
-
   const fetchSegments = async () => {
     try {
       const res = await axios.get('https://crm-native-ai-1.onrender.com/api/segments');
@@ -37,8 +35,11 @@ const Segments = () => {
     finally { setLoading(false); }
   };
 
+  useEffect(() => { fetchSegments(); }, []);
+
   const handleCreate = async (e) => {
     e.preventDefault();
+    if (!newSegmentData.name || !newSegmentData.criteria) return;
     setIsSubmitting(true);
     try {
       await axios.post('https://crm-native-ai-1.onrender.com/api/segments', newSegmentData);
