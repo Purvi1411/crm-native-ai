@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5099:5099"
+    environment:
+      - PORT=5099
+    # Add any necessary env vars from your .env file here or use env_file:
+    # env_file:
+    #   - ./backend/.env
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:5099
+    # env_file:
+    #   - ./frontend/.env
+    depends_on:
+      - backend
