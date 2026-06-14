@@ -56,7 +56,7 @@ router.post('/plan', async (req, res) => {
         const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
         systemContent += `\n\nCRITICAL DEMOGRAPHIC & SEASONAL INSTRUCTIONS: 
         Today's date is ${currentDate}. 
-        - GENDER: If the user's prompt mentions "Male", "men", or "boys", you MUST set "genderTarget" strictly to "Male". If it mentions "Female", "women", or "girls", you MUST set "genderTarget" strictly to "Female". Do NOT output "Female" if the user asked for "Male" and vice versa. If neither is mentioned, set it to "All".
+        - GENDER: If the user's prompt mentions "both" or mentions both "Male" and "Female", you MUST set "genderTarget" strictly to "All". If it ONLY mentions "Male", "men", or "boys", set "genderTarget" strictly to "Male". If it ONLY mentions "Female", "women", or "girls", set "genderTarget" strictly to "Female". If neither is mentioned, set it to "All".
         - AGE: If they specify an age bracket, map it strictly to "ageTarget" using the predefined brackets. Otherwise set them to "All".
         You MUST heavily tailor the "message" copywriting to resonate uniquely with these demographics.
         Additionally, dynamically invent or reference an upcoming seasonal occasion, holiday, or trend that is relevant to the date (${currentDate}) and include it seamlessly in the message copy.`;
