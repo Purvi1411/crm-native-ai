@@ -14,6 +14,7 @@ require('./config/passport'); // Now this can safely read the .env file!
 connectDB();
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Middleware to parse JSON and allow cross-origin requests
 app.use(cors());
