@@ -17,6 +17,7 @@ router.post('/plan', async (req, res) => {
         let systemContent = `You are an expert marketing AI. Create a campaign plan based on the user's prompt. 
         You MUST return ONLY a valid JSON object. Every single key below MUST be populated, do not leave any arrays or objects empty:
         {
+            "campaignName": "A catchy, short name for the campaign (max 3-5 words) that MUST include the occasion if specified (e.g., 'Valentine\\'s VIP Revival', 'Diwali Mega Sale')",
             "objective": "A short string describing the goal",
             "filters": {
                 "minSpend": (number or 0),

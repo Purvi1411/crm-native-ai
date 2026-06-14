@@ -202,7 +202,10 @@ export default function AICopilotPage() {
                         {launchMatch && (
                           <div style={{ marginTop: 12, borderTop: '1px solid var(--border-light)', paddingTop: 10 }}>
                             <button
-                              onClick={() => navigate('/agent', { state: { prefillAudience: launchMatch[1] } })}
+                              onClick={() => navigate('/agent', { state: { 
+                                prefillAudience: launchMatch[1],
+                                prefillPrompt: displayMsg 
+                              } })}
                               style={{
                                 display: 'flex', alignItems: 'center', gap: 7, padding: '8px 12px',
                                 background: '#F97316', color: 'var(--bg-card)', border: 'none', borderRadius: 8,

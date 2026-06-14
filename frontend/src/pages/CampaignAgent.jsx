@@ -99,7 +99,7 @@ const CampaignAgent = () => {
     setIsLaunching(true);
     try {
       await axios.post('https://crm-native-ai-1.onrender.com/api/campaigns', {
-        name: plan.objective || 'AI Autonomous Campaign',
+        name: plan.campaignName || plan.objective || 'AI Autonomous Campaign',
         objective: plan.objective,
         message: plan.message,
         channel: plan.channel || 'email',
@@ -190,7 +190,7 @@ const CampaignAgent = () => {
               {/* Channel badge */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <h3 style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 7 }}>
-                  <IconZap /> AI Strategy Engine Engaged
+                  <IconZap /> {plan.campaignName || 'AI Strategy Engine Engaged'}
                 </h3>
                 <span className="xn-badge-pill xn-badge-orange" style={{ textTransform: 'uppercase', letterSpacing: '.4px' }}>
                   Targeting: {plan.channel}
