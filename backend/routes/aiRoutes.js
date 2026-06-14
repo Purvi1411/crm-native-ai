@@ -134,10 +134,6 @@ router.post('/plan', async (req, res) => {
         let audienceCount = 0;
         try {
             audienceCount = await Customer.countDocuments(dbQuery);
-            if (audienceCount === 0) {
-                 // Hackathon Failsafe: If no users match, simulate a cohort so the demo looks active
-                 audienceCount = Math.floor(Math.random() * 300) + 50;
-            }
         } catch (dbErr) {
             console.error("Database querying failed, utilizing failsafe metrics:", dbErr);
             audienceCount = Math.floor(Math.random() * 300) + 50;

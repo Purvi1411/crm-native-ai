@@ -80,9 +80,7 @@ router.post('/', async (req, res) => {
             
             const all = await Customer.find(failsafeQuery);
             if (all.length > 0) {
-                const shuffled = all.sort(() => 0.5 - Math.random());
-                const grabCount = Math.floor(all.length * (0.8 + Math.random() * 0.2));
-                recipientIds = shuffled.slice(0, grabCount).map(c => c._id);
+                recipientIds = all.map(c => c._id);
                 finalTargetCount = recipientIds.length;
             }
         }
