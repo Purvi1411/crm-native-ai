@@ -10,7 +10,11 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 // @desc    Generate a campaign plan from natural language (MULTI-AGENT ADVERSARIAL + PREDICTIVE ML + TRACING + SIMULATION)
 // @route   POST /api/ai/plan
 router.post('/plan', async (req, res) => {
-    const { prompt, brandVoice, aiModel = 'llama-3.1-8b-instant', temperature = 0.5, brandSafety = true, segmentId } = req.body;
+    let { prompt, brandVoice, aiModel, temperature, brandSafety = true, segmentId } = req.body;
+
+    // Ensure valid defaults even if null or invalid values are passed
+    aiModel = aiModel || 'llama-3.1-8b-instant';
+    temperature = (typeof temperature === 'number' && !isNaN(temperature)) ? temperature : 0.5;
 
     try {
         // 🔥 STRICT SCHEMA ENFORCEMENT: Forces the Llama model to populate the arrays and matrices

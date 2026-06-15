@@ -80,7 +80,7 @@ const CampaignAgent = () => {
         prompt: finalPrompt, 
         brandVoice,
         aiModel: settings.aiModel,
-        temperature: parseFloat(settings.temperature),
+        temperature: settings.temperature ? parseFloat(settings.temperature) : 0.5,
         brandSafety: settings.brandSafety,
         segmentId: prefillSegmentId
       });
