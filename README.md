@@ -244,20 +244,6 @@ docker run -p 5173:5173 xeno-frontend
 
 ---
 
-# 📸 Screenshots
-
-Include screenshots for:
-
-- Login Page
-- Dashboard
-- Customer Management
-- Audience Segmentation
-- Campaign Creation
-- AI Message Generator
-- Analytics View
-
----
-
 # 🚀 Future Enhancements
 
 - WhatsApp Business API Integration
