@@ -241,6 +241,9 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
               
               const totalSpentRaw = getCol(row, ['spent', 'total', 'revenue', 'ltv', 'price', 'amount']);
               const visitsRaw = getCol(row, ['visit', 'order', 'frequency', 'count', 'purchases']);
+              
+              const countryRaw = getCol(row, ['country', 'nation']);
+              const stateRaw = getCol(row, ['state', 'region', 'province']);
 
               const customerObj = {
                 name,
@@ -252,6 +255,8 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
 
               if (genderRaw) customerObj.gender = genderRaw;
               if (ageRaw) customerObj.ageGroup = ageRaw;
+              if (countryRaw) customerObj.country = countryRaw;
+              if (stateRaw) customerObj.state = stateRaw;
 
               customers.push(customerObj);
             }
@@ -261,7 +266,13 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
             await axios.post('https://crm-native-ai-1.onrender.com/api/customers/bulk', { customers });
             onSuccess();
           } catch (err) {
-            console.error('Bulk upload error:', err.response?.data);
+            console.error('Bulk upload error:', err);
+            const responseData = err.response?.data ? JSON.stringify(err.response.data) : 'No response data (HTML returned by proxy or backend crashed)';
+            const status = err.response?.status || 'No status';
+            const errorMsg = `ERROR DETAILS:\nStatus: ${status}\nResponse: ${responseData}\n\nThis means the payload was generated but rejected by the server!`;
+            
+            alert(errorMsg);
+            
             setError(err.response?.data?.error || err.response?.data?.message || err.message || 'Failed to parse and upload CSV');
           } finally {
             setLoading(false);
@@ -336,11 +347,16 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
           </form>
         ) : (
           <form onSubmit={handleFileUpload} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div style={{ background: 'var(--bg-ghost)', border: '1px dashed var(--border-light)', borderRadius: 12, padding: 32, textAlign: 'center' }}>
+            <div className="border-2 border-dashed border-[#ffffff15] rounded-xl p-8 flex flex-col items-center justify-center text-center">
               <IconUpload />
-              <p style={{ fontSize: 13, color: 'var(--text-main)', fontWeight: 600, marginTop: 12 }}>Select a CSV file to upload</p>
-              <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>Required headers: Name, Email</p>
-              <input type="file" accept=".csv" onChange={e => setFile(e.target.files[0])} style={{ marginTop: 16, fontSize: 12 }} />
+              <p className="mt-4 text-sm text-[#ffffffa0]">Select a CSV file to upload</p>
+              <p className="mt-2 text-xs text-[#ffffff60]">
+                Required: <span className="text-[#ffffffa0]">Name, Email</span>
+              </p>
+              <p className="mt-1 text-xs text-[#ffffff60]">
+                Optional: <span className="text-[#ffffffa0]">Spent, Visits, Date, Gender, Age, Country, State</span>
+              </p>
+              <input type="file" accept=".csv" onChange={(e) => setFile(e.target.files[0])} className="mt-4 text-sm text-[#ffffff80] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#ffffff10] file:text-white hover:file:bg-[#ffffff20]" />
             </div>
             <button type="submit" disabled={loading || !file} className="xn-btn-primary" style={{ justifyContent: 'center' }}>
               {loading ? 'Uploading...' : 'Process CSV'}
