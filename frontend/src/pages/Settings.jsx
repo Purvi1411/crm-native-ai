@@ -138,7 +138,7 @@ export default function Settings() {
               <SettingRow label="AI Model">
                 <select value={settings.aiModel} onChange={e => set('aiModel', e.target.value)} className="xn-input" style={{ width: 200 }}>
                   <option value="llama-3.1-8b-instant">LLaMA 3.1 8B (Fast)</option>
-                  <option value="llama-3.1-70b-versatile">LLaMA 3.1 70B (Powerful)</option>
+                  <option value="llama-3.3-70b-versatile">LLaMA 3.3 70B (Powerful)</option>
                   <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
                 </select>
               </SettingRow>
