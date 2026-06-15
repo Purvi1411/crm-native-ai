@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Papa from 'papaparse';
 import Sidebar from '../components/Sidebar';
 import RiskScatterPlot from './RiskScatterPlot';
 
@@ -181,79 +182,77 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
     setLoading(true); setError(null);
     
     const reader = new FileReader();
-    reader.onload = async (event) => {
-      try {
-        const text = event.target.result;
-        // Simple CSV parser
-        const stripQuotes = (str) => str.replace(/^["']|["']$/g, '');
-        const rows = text.split('\n').map(row => row.trim()).filter(row => row);
-        if (rows.length < 2) throw new Error('CSV must contain headers and at least one row');
-        
-        const parseCSVRow = (row) => {
-          const result = [];
-          let insideQuotes = false;
-          let currentVal = '';
-          for (let i = 0; i < row.length; i++) {
-            const char = row[i];
-            if (char === '"') {
-              insideQuotes = !insideQuotes;
-            } else if (char === ',' && !insideQuotes) {
-              result.push(currentVal);
-              currentVal = '';
-            } else {
-              currentVal += char;
+    Papa.parse(file, {
+        header: true,
+        skipEmptyLines: true,
+        complete: async (results) => {
+          try {
+            const customers = [];
+            
+            // Generate a lowercased map of headers to original headers for fuzzy matching
+            const headers = results.meta.fields || [];
+            const headerMap = {};
+            headers.forEach(h => headerMap[h.toLowerCase().trim()] = h);
+            
+            const getCol = (row, possibleNames) => {
+              // Find the first matching header
+              const match = Object.keys(headerMap).find(h => possibleNames.some(p => h.includes(p)));
+              if (!match) return null;
+              const val = row[headerMap[match]];
+              return val ? val.trim() : null;
+            };
+
+            for (const row of results.data) {
+              const name = getCol(row, ['name', 'fullname', 'first', 'customer']);
+              const email = getCol(row, ['email', 'mail', 'contact']);
+              
+              if (!name || !email) continue; // Skip invalid rows
+
+              let parsedDate = new Date();
+              const rawDate = getCol(row, ['last', 'date', 'order', 'active']);
+              if (rawDate) {
+                const d = new Date(rawDate);
+                if (!isNaN(d.getTime())) {
+                  parsedDate = d;
+                }
+              }
+
+              const genderRaw = getCol(row, ['gender', 'sex']);
+              const ageRaw = getCol(row, ['age']);
+              
+              const totalSpentRaw = getCol(row, ['spent', 'total', 'revenue', 'ltv', 'price', 'amount']);
+              const visitsRaw = getCol(row, ['visit', 'order', 'frequency', 'count', 'purchases']);
+
+              const customerObj = {
+                name,
+                email,
+                totalSpent: Number((totalSpentRaw || '').replace(/[^0-9.-]+/g,"")) || 0,
+                visits: Number((visitsRaw || '').replace(/[^0-9.-]+/g,"")) || 0,
+                lastOrderDate: parsedDate,
+              };
+
+              if (genderRaw) customerObj.gender = genderRaw;
+              if (ageRaw) customerObj.ageGroup = ageRaw;
+
+              customers.push(customerObj);
             }
+
+            if (customers.length === 0) throw new Error('No valid customers found in CSV (make sure Name and Email columns exist)');
+
+            await axios.post('https://crm-native-ai-1.onrender.com/api/customers/bulk', { customers });
+            onSuccess();
+          } catch (err) {
+            console.error('Bulk upload error:', err.response?.data);
+            setError(err.response?.data?.error || err.response?.data?.message || err.message || 'Failed to parse and upload CSV');
+          } finally {
+            setLoading(false);
           }
-          result.push(currentVal);
-          return result;
-        };
-
-        const headers = parseCSVRow(rows[0]).map(h => stripQuotes(h.trim()).toLowerCase());
-        const customers = [];
-
-        for (let i = 1; i < rows.length; i++) {
-          const cols = parseCSVRow(rows[i]).map(c => stripQuotes(c.trim()));
-          const getCol = (possibleNames) => {
-            const idx = headers.findIndex(h => possibleNames.some(p => h.includes(p)));
-            return idx >= 0 ? cols[idx] : null;
-          };
-
-          const name = getCol(['name', 'fullname', 'first']);
-          const email = getCol(['email']);
-          if (!name || !email) continue; // Skip invalid rows
-
-          let parsedDate = new Date();
-          const rawDate = getCol(['last', 'date', 'order']);
-          if (rawDate) {
-            const d = new Date(rawDate);
-            if (!isNaN(d.getTime())) {
-              parsedDate = d;
-            }
-          }
-
-          customers.push({
-            name, email,
-            totalSpent: Number(getCol(['spent', 'total', 'revenue', 'ltv', 'price'])) || 0,
-            visits: Number(getCol(['visit', 'order', 'frequency', 'count'])) || 0,
-            lastOrderDate: parsedDate,
-            gender: getCol(['gender', 'sex']),
-            ageGroup: getCol(['age'])
-          });
+        },
+        error: (error) => {
+          setError('Failed to parse CSV: ' + error.message);
+          setLoading(false);
         }
-
-        if (customers.length === 0) throw new Error('No valid customers found in CSV (make sure Name and Email columns exist)');
-
-        await axios.post('https://crm-native-ai-1.onrender.com/api/customers/bulk', { customers });
-        onSuccess();
-      } catch (err) {
-        console.error('Bulk upload error:', err.response?.data);
-        setError(err.response?.data?.error || err.response?.data?.message || err.message || 'Failed to parse and upload CSV');
-      } finally {
-        setLoading(false);
-      }
-    };
-    reader.onerror = () => { setError('Failed to read file'); setLoading(false); };
-    reader.readAsText(file);
+      });
   };
 
   return (
