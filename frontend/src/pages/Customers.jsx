@@ -183,6 +183,7 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
           Papa.parse(file, {
         header: false,
         skipEmptyLines: true,
+        encoding: "utf-8", // 1. Force UTF-8 encoding
         complete: async (results) => {
           try {
             const customers = [];
@@ -193,14 +194,19 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
             let headerMap = {};
             
             for (let i = 0; i < Math.min(20, data.length); i++) {
-              const rowStr = data[i].join(' ').toLowerCase();
+              let rowStr = data[i].join(' ').toLowerCase();
               // A row is the header if it contains some variation of "name" and "email"
               if ((rowStr.includes('name') || rowStr.includes('customer') || rowStr.includes('first')) && 
                   (rowStr.includes('email') || rowStr.includes('mail') || rowStr.includes('contact'))) {
                 headerRowIdx = i;
                 // Build a map of lowercase header string -> index
                 data[i].forEach((col, idx) => {
-                  if (col) headerMap[col.toLowerCase().trim()] = idx;
+                  if (col) {
+                    let colName = col.toLowerCase().trim();
+                    // 2. Fix column name mismatch for rupee symbol
+                    if (colName === 'total spent (₹)') colName = 'total spent';
+                    headerMap[colName] = idx;
+                  }
                 });
                 break;
               }
@@ -230,7 +236,17 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
               let parsedDate = new Date();
               const rawDate = getCol(row, ['last', 'date', 'order', 'active']);
               if (rawDate) {
-                const d = new Date(rawDate);
+                let d = new Date(rawDate);
+                
+                // 3. Clean and normalize date format dynamically (dayfirst=True equivalent)
+                if (typeof rawDate === 'string') {
+                  const parts = rawDate.split(/[\/\-]/);
+                  // If format is DD/MM/YYYY or DD-MM-YYYY
+                  if (parts.length === 3 && parts[2].length === 4) {
+                    d = new Date(`${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}T00:00:00Z`);
+                  }
+                }
+
                 if (!isNaN(d.getTime())) {
                   parsedDate = d;
                 }
@@ -239,7 +255,7 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
               const genderRaw = getCol(row, ['gender', 'sex']);
               const ageRaw = getCol(row, ['age']);
               
-              const totalSpentRaw = getCol(row, ['spent', 'total', 'revenue', 'ltv', 'price', 'amount']);
+              const totalSpentRaw = getCol(row, ['spent', 'total', 'revenue', 'ltv', 'price', 'amount', '₹']);
               const visitsRaw = getCol(row, ['visit', 'order', 'frequency', 'count', 'purchases']);
               
               const countryRaw = getCol(row, ['country', 'nation']);
