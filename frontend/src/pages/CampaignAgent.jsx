@@ -85,8 +85,8 @@ const CampaignAgent = () => {
         segmentId: prefillSegmentId
       });
       setPlan(res.data);
-    } catch {
-      alert('Error generating plan. Is your backend running?');
+    } catch (err) {
+      alert(`Error: ${err?.response?.data?.error || err?.message || 'Failed to generate plan'}`);
     } finally { setIsLoading(false); }
   };
 
