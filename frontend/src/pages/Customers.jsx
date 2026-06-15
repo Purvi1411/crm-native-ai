@@ -180,33 +180,52 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
     e.preventDefault();
     if (!file) { setError('Please select a CSV file'); return; }
     setLoading(true); setError(null);
-    
-    const reader = new FileReader();
-    Papa.parse(file, {
-        header: true,
+          Papa.parse(file, {
+        header: false,
         skipEmptyLines: true,
         complete: async (results) => {
           try {
             const customers = [];
+            const data = results.data;
             
-            // Generate a lowercased map of headers to original headers for fuzzy matching
-            const headers = results.meta.fields || [];
-            const headerMap = {};
-            headers.forEach(h => headerMap[h.toLowerCase().trim()] = h);
+            // 1. Find the header row by scanning the first 20 rows
+            let headerRowIdx = -1;
+            let headerMap = {};
             
+            for (let i = 0; i < Math.min(20, data.length); i++) {
+              const rowStr = data[i].join(' ').toLowerCase();
+              // A row is the header if it contains some variation of "name" and "email"
+              if ((rowStr.includes('name') || rowStr.includes('customer') || rowStr.includes('first')) && 
+                  (rowStr.includes('email') || rowStr.includes('mail') || rowStr.includes('contact'))) {
+                headerRowIdx = i;
+                // Build a map of lowercase header string -> index
+                data[i].forEach((col, idx) => {
+                  if (col) headerMap[col.toLowerCase().trim()] = idx;
+                });
+                break;
+              }
+            }
+
+            if (headerRowIdx === -1) {
+              throw new Error('Could not find Name and Email columns in the CSV. Make sure they exist!');
+            }
+
+            // 2. Helper to get column value from a row using fuzzy header names
             const getCol = (row, possibleNames) => {
-              // Find the first matching header
               const match = Object.keys(headerMap).find(h => possibleNames.some(p => h.includes(p)));
               if (!match) return null;
               const val = row[headerMap[match]];
               return val ? val.trim() : null;
             };
 
-            for (const row of results.data) {
+            // 3. Parse all rows AFTER the header row
+            for (let i = headerRowIdx + 1; i < data.length; i++) {
+              const row = data[i];
+              
               const name = getCol(row, ['name', 'fullname', 'first', 'customer']);
               const email = getCol(row, ['email', 'mail', 'contact']);
               
-              if (!name || !email) continue; // Skip invalid rows
+              if (!name || !email) continue; // Skip invalid or empty rows
 
               let parsedDate = new Date();
               const rawDate = getCol(row, ['last', 'date', 'order', 'active']);
