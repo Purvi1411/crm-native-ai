@@ -189,11 +189,30 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
         const rows = text.split('\n').map(row => row.trim()).filter(row => row);
         if (rows.length < 2) throw new Error('CSV must contain headers and at least one row');
         
-        const headers = rows[0].split(',').map(h => stripQuotes(h.trim()).toLowerCase());
+        const parseCSVRow = (row) => {
+          const result = [];
+          let insideQuotes = false;
+          let currentVal = '';
+          for (let i = 0; i < row.length; i++) {
+            const char = row[i];
+            if (char === '"') {
+              insideQuotes = !insideQuotes;
+            } else if (char === ',' && !insideQuotes) {
+              result.push(currentVal);
+              currentVal = '';
+            } else {
+              currentVal += char;
+            }
+          }
+          result.push(currentVal);
+          return result;
+        };
+
+        const headers = parseCSVRow(rows[0]).map(h => stripQuotes(h.trim()).toLowerCase());
         const customers = [];
 
         for (let i = 1; i < rows.length; i++) {
-          const cols = rows[i].split(',').map(c => stripQuotes(c.trim()));
+          const cols = parseCSVRow(rows[i]).map(c => stripQuotes(c.trim()));
           const getCol = (possibleNames) => {
             const idx = headers.findIndex(h => possibleNames.some(p => h.includes(p)));
             return idx >= 0 ? cols[idx] : null;
@@ -203,11 +222,20 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
           const email = getCol(['email']);
           if (!name || !email) continue; // Skip invalid rows
 
+          let parsedDate = new Date();
+          const rawDate = getCol(['last', 'date', 'order']);
+          if (rawDate) {
+            const d = new Date(rawDate);
+            if (!isNaN(d.getTime())) {
+              parsedDate = d;
+            }
+          }
+
           customers.push({
             name, email,
             totalSpent: Number(getCol(['spent', 'total', 'revenue', 'ltv', 'price'])) || 0,
             visits: Number(getCol(['visit', 'order', 'frequency', 'count'])) || 0,
-            lastOrderDate: getCol(['last', 'date', 'order']) || new Date(),
+            lastOrderDate: parsedDate,
             gender: getCol(['gender', 'sex']),
             ageGroup: getCol(['age'])
           });
