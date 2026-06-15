@@ -137,7 +137,7 @@ const addCustomersBulk = async (req, res) => {
         res.status(201).json({ message: `Bulk uploaded successfully. Upserted/Updated ${customers.length} records.`, result });
     } catch (error) {
         console.error("Error in bulk upload:", error);
-        res.status(500).json({ message: 'Server Error during bulk upload' });
+        res.status(500).json({ message: 'Server Error during bulk upload', error: error.message, stack: error.stack });
     }
 };
 

@@ -246,7 +246,8 @@ const AddCustomerModal = ({ onClose, onSuccess }) => {
         await axios.post('https://crm-native-ai-1.onrender.com/api/customers/bulk', { customers });
         onSuccess();
       } catch (err) {
-        setError(err.message || 'Failed to parse and upload CSV');
+        console.error('Bulk upload error:', err.response?.data);
+        setError(err.response?.data?.error || err.response?.data?.message || err.message || 'Failed to parse and upload CSV');
       } finally {
         setLoading(false);
       }
