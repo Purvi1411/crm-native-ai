@@ -13,7 +13,7 @@ router.post('/plan', async (req, res) => {
     let { prompt, brandVoice, aiModel, temperature, brandSafety = true, segmentId } = req.body;
 
     // Ensure valid defaults even if null or invalid values are passed
-    aiModel = aiModel || 'llama-3.1-8b-instant';
+    aiModel = aiModel || 'openai/gpt-oss-120b';
     temperature = (typeof temperature === 'number' && !isNaN(temperature)) ? temperature : 0.5;
 
     try {
@@ -188,7 +188,7 @@ router.get('/analytics/:campaignId', async (req, res) => {
                     content: `Campaign Data: Total targeted: ${sent}, Successfully delivered: ${delivered}, Failed completely: ${failed}, Total API attempts made due to network retries: ${totalAttempts}.`
                 }
             ],
-            model: "llama-3.1-8b-instant",
+            model: "openai/gpt-oss-20b",
             temperature: 0.3
         });
 
@@ -241,7 +241,7 @@ router.get('/explain-customer/:id', async (req, res) => {
                     Predictive Churn Risk Score: ${customer.churnRiskScore}/100`
                 }
             ],
-            model: "llama-3.1-8b-instant",
+            model: "openai/gpt-oss-20b",
             response_format: { type: "json_object" },
             temperature: 0.2 
         });
@@ -264,7 +264,7 @@ router.post('/chat', async (req, res) => {
         let { message, history = [], aiModel, temperature } = req.body;
         
         // Ensure valid defaults even if null is passed
-        aiModel = aiModel || 'llama-3.1-8b-instant';
+        aiModel = aiModel || 'openai/gpt-oss-120b';
         temperature = (typeof temperature === 'number' && !isNaN(temperature)) ? temperature : 0.5;
 
         // 1. LONG-TERM DATA MEMORY: Fetch actual stats from your MongoDB

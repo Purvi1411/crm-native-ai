@@ -47,7 +47,7 @@ export default function Settings() {
     return {
     name: 'Admin', email: 'admin@xenoreach.ai', role: 'CRM Manager', company: 'TechMahindra',
     emailNotifs: true, smsNotifs: false, campaignAlerts: true, churnAlerts: true, weeklyReport: true,
-    autoSuggest: true, brandSafety: true, aiModel: 'llama-3.1-8b-instant', temperature: '0.5',
+    autoSuggest: true, brandSafety: true, aiModel: 'openai/gpt-oss-120b', temperature: '0.5',
     whatsappEnabled: true, emailEnabled: true, smsEnabled: true, rcsEnabled: false,
     retryAttempts: '3', retryDelay: '5', failureThreshold: '20',
     };
@@ -137,9 +137,8 @@ export default function Settings() {
               </SettingRow>
               <SettingRow label="AI Model">
                 <select value={settings.aiModel} onChange={e => set('aiModel', e.target.value)} className="xn-input" style={{ width: 200 }}>
-                  <option value="llama-3.1-8b-instant">LLaMA 3.1 8B (Fast)</option>
-                  <option value="llama-3.3-70b-versatile">LLaMA 3.3 70B (Powerful)</option>
-                  <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+                  <option value="openai/gpt-oss-20b">GPT-OSS 20B (Fast)</option>
+                  <option value="openai/gpt-oss-120b">GPT-OSS 120B (Powerful)</option>
                 </select>
               </SettingRow>
               <SettingRow label="AI Temperature" desc="Higher = more creative, Lower = more precise">

@@ -279,7 +279,7 @@ Return ONLY a JSON array of exactly 9 items, each with this structure:
 
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
-      model: 'llama-3.1-8b-instant',
+      model: 'openai/gpt-oss-20b',
       response_format: { type: 'json_object' },
       temperature: 0.9
     });

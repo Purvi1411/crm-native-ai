@@ -100,7 +100,7 @@ export default function AICopilotPage() {
       const res = await axios.post('https://crm-native-ai-1.onrender.com/api/ai/chat', {
         message: userText,
         history: newMessages,
-        aiModel: settings.aiModel || 'llama-3.1-8b-instant',
+        aiModel: settings.aiModel || 'openai/gpt-oss-120b',
         temperature: settings.temperature !== undefined ? parseFloat(settings.temperature) : 0.5
       });
       updateActiveSessionMessages([...newMessages, {
