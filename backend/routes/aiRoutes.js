@@ -12,6 +12,11 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 router.post('/plan', async (req, res) => {
     let { prompt, brandVoice, aiModel, temperature, brandSafety = true, segmentId } = req.body;
 
+    // SAFEGUARD: Replace old deprecated models from client DB state
+    if (aiModel === 'llama-3.1-8b-instant') aiModel = 'openai/gpt-oss-20b';
+    if (aiModel === 'llama-3.3-70b-versatile') aiModel = 'openai/gpt-oss-120b';
+    if (aiModel === 'mixtral-8x7b-32768') aiModel = 'openai/gpt-oss-20b';
+
     // Ensure valid defaults even if null or invalid values are passed
     aiModel = aiModel || 'openai/gpt-oss-120b';
     temperature = (typeof temperature === 'number' && !isNaN(temperature)) ? temperature : 0.5;
@@ -263,6 +268,11 @@ router.post('/chat', async (req, res) => {
     try {
         let { message, history = [], aiModel, temperature } = req.body;
         
+        // SAFEGUARD: Replace old deprecated models from client DB state
+        if (aiModel === 'llama-3.1-8b-instant') aiModel = 'openai/gpt-oss-20b';
+        if (aiModel === 'llama-3.3-70b-versatile') aiModel = 'openai/gpt-oss-120b';
+        if (aiModel === 'mixtral-8x7b-32768') aiModel = 'openai/gpt-oss-20b';
+
         // Ensure valid defaults even if null is passed
         aiModel = aiModel || 'openai/gpt-oss-120b';
         temperature = (typeof temperature === 'number' && !isNaN(temperature)) ? temperature : 0.5;
